@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Form</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: transparent;
+      font-family: 'Inter', sans-serif;
+      color: #01D1FC;
+      font-size: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    form {
+      width: 100%;
+      max-width: 400px;
+    }
+    input, textarea {
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 10px;
+      border: 1px solid #02cbf529;
+      border-radius: 8px;
+      background-color: #ffffff0e;
+      color: #01D1FC;
+      font-size: 15px;
+    }
+    input::placeholder, textarea::placeholder {
+      color: #01D1FC;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #01D1FC;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 15px;
+    }
+  </style>
+</head>
+<body>
+  <form id="form">
+    <input type="text" name="name" placeholder="Name" required><br>
+    <input type="email" name="email" placeholder="Email" required><br>
+    <input type="tel" name="phone" placeholder="Phone Number" required><br>
+    <input type="text" name="company" placeholder="Company Name" required><br>
+    <textarea name="message" placeholder="Message" rows="4" required></textarea><br>
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    const form = document.getElementById('form');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const data = {
+        name: form.name.value,
+        email: form.email.value,
+        phone: form.phone.value,
+        company: form.company.value,
+        message: form.message.value
+      };
+      fetch("https://script.google.com/macros/s/AKfycb.../ehttps://script.google.com/macros/s/AKfycby9ggApMGv8zF1l8-I33617SaTHgUY9UZdiOLzqXQHVC8hnQkSpMx7Yymi8CDHWOXrsSA/exec", {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }).then(res => {
+        if (res.ok) {
+          alert('Form submitted successfully!');
+          form.reset();
+        } else {
+          alert('There was an error submitting the form.');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
+
