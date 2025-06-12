@@ -6,76 +6,137 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet" />
   <style>
     body {
-    background: url('https://raw.githubusercontent.com/apexsolutions-se/contact-form/main/background.png') no-repeat center center fixed;
-    background-size: cover;
-    font-family: 'Inter', sans-serif;
-    color: #01D1FC;
-    font-size: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    }
-    form {
-      width: 100%;
-      max-width: 400px;
-    }
-    input, textarea {
-      width: 100%;
-      margin-bottom: 10px;
-      padding: 10px;
-      border: 1px solid #02cbf529;
-      border-radius: 8px;
-      background-color: #ffffff0e;
+      background: url('https://raw.githubusercontent.com/apexsolutions-se/contact-form/main/background.png') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Inter', sans-serif;
       color: #01D1FC;
       font-size: 15px;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      box-sizing: border-box;
     }
-    input::placeholder, textarea::placeholder {
-      color: #01D1FC;
-    }
-    button {
+  
+    .container {
       width: 100%;
+      max-width: 420px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       padding: 10px;
-      background-color: #01D1FC;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 15px;
     }
-    @font-face {
-      font-family: 'Mokoto';
-      src: url('https://apexsolutions-se.github.io/contact-form/fonts/mokoto.woff') format('woff');
-      font-weight: normal;
-      font-style: normal;
-    }
+  
     .heading {
       font-family: 'mokoto', sans-serif;
       font-size: 16px;
       line-height: 1.4;
       color: white;
       text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
     }
-    .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+  
+    form {
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.4); /* optional for contrast */
+      border-radius: 10px;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+  
+    input, textarea {
+      width: 100%;
+      margin-bottom: 12px;
+      padding: 12px;
+      border: 1px solid #02cbf529;
+      border-radius: 8px;
+      background-color: #ffffff0e;
+      color: #01D1FC;
+      font-size: 15px;
+      box-sizing: border-box;
+    }
+  
+    input::placeholder,
+    textarea::placeholder {
+      color: #01D1FC;
+    }
+  
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #01D1FC;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: bold;
+    }
+  
+    @font-face {
+      font-family: 'Mokoto';
+      src: url('https://apexsolutions-se.github.io/contact-form/fonts/mokoto.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+  
+    /* Language dropdown style */
+    .language-switcher {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      z-index: 999;
+    }
+  
+    .language-switcher select {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: white;
+      border: 1px solid #01D1FC;
+      border-radius: 5px;
+      padding: 5px 10px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+  
+    @media (max-width: 480px) {
+      .heading {
+        font-size: 14px;
+        padding: 0 10px;
+      }
+  
+      form {
+        padding: 15px;
+      }
+  
+      input, textarea, button {
+        font-size: 14px;
+        padding: 10px;
+      }
+  
+      .language-switcher select {
+        font-size: 13px;
+        padding: 4px 8px;
+      }
     }
   </style>
+
 </head>
 <body>
   <div class="container">
-    <div style="position: absolute; top: 20px; right: 20px;">
-      <select id="language-select" onchange="setLanguage(this.value)" style="background: transparent; color: #01D1FC; border: 1px solid #01D1FC; border-radius: 6px; padding: 4px;">
+    <!-- Language Dropdown -->
+    <div class="language-switcher">
+      <select id="language-select" onchange="setLanguage(this.value)">
         <option value="en">English</option>
         <option value="sv">Svenska</option>
       </select>
     </div>
-  
+
+    <!-- Headline -->
     <p class="heading">Let’s build something together.<br>Fill out the form and we’ll get back to you as soon as possible.</p>
 
+    <!-- Contact Form -->
     <form action="https://formsubmit.co/imperialkatelyn@gmail.com" method="POST">
       <input type="hidden" name="_next" value="https://apexcommunication.se/contact-form">
       <input type="text" name="name" placeholder="Name" required><br>
@@ -86,40 +147,39 @@
       <button type="submit">Submit</button>
     </form>
   </div>
+
+  <!-- Language Script -->
   <script>
-  const translations = {
-    en: {
-      heading: "Let’s build something together. <br>Fill out the form and we’ll get back to you as soon as possible.",
-      name: "Name",
-      email: "Email",
-      phone: "Phone Number",
-      company: "Company Name",
-      message: "Message",
-      submit: "Submit"
-    },
-    sv: {
-      heading: "Låt oss skapa något tillsammans. <br> Fyll i formuläret så återkommer vi till dig så snart som möjligt.",
-      name: "Namn",
-      email: "E-post",
-      phone: "Telefonnummer",
-      company: "Företagsnamn",
-      message: "Meddelande",
-      submit: "Skicka"
+    const translations = {
+      en: {
+        heading: "Let’s build something together.<br>Fill out the form and we’ll get back to you as soon as possible.",
+        name: "Name",
+        email: "Email",
+        phone: "Phone Number",
+        company: "Company Name",
+        message: "Message",
+        submit: "Submit"
+      },
+      sv: {
+        heading: "Låt oss skapa något tillsammans.<br>Fyll i formuläret så återkommer vi till dig så snart som möjligt.",
+        name: "Namn",
+        email: "E-post",
+        phone: "Telefonnummer",
+        company: "Företagsnamn",
+        message: "Meddelande",
+        submit: "Skicka"
+      }
+    };
+
+    function setLanguage(lang) {
+      const t = translations[lang];
+      document.querySelector(".heading").innerHTML = t.heading;
+      document.querySelector("input[name='name']").placeholder = t.name;
+      document.querySelector("input[name='email']").placeholder = t.email;
+      document.querySelector("input[name='phone']").placeholder = t.phone;
+      document.querySelector("input[name='company']").placeholder = t.company;
+      document.querySelector("textarea[name='message']").placeholder = t.message;
+      document.querySelector("button[type='submit']").textContent = t.submit;
     }
-  };
-
-  function setLanguage(lang) {
-    const t = translations[lang];
-    document.querySelector(".heading").innerHTML = t.heading;
-    document.querySelector("input[name='name']").placeholder = t.name;
-    document.querySelector("input[name='email']").placeholder = t.email;
-    document.querySelector("input[name='phone']").placeholder = t.phone;
-    document.querySelector("input[name='company']").placeholder = t.company;
-    document.querySelector("textarea[name='message']").placeholder = t.message;
-    document.querySelector("button[type='submit']").textContent = t.submit;
-  }
-</script>
-
-  
+  </script>
 </body>
-
