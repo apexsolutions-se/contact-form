@@ -86,5 +86,40 @@
       <button type="submit">Submit</button>
     </form>
   </div>
+  <script>
+  const translations = {
+    en: {
+      heading: "Let’s build something together. Fill out the form and we’ll get back to you as soon as possible.",
+      name: "Name",
+      email: "Email",
+      phone: "Phone Number",
+      company: "Company Name",
+      message: "Message",
+      submit: "Submit"
+    },
+    sv: {
+      heading: "Låt oss skapa något tillsammans. Fyll i formuläret så återkommer vi till dig så snart som möjligt.",
+      name: "Namn",
+      email: "E-post",
+      phone: "Telefonnummer",
+      company: "Företagsnamn",
+      message: "Meddelande",
+      submit: "Skicka"
+    }
+  };
+
+  function setLanguage(lang) {
+    const t = translations[lang];
+    document.querySelector(".heading").innerHTML = t.heading;
+    document.querySelector("input[name='name']").placeholder = t.name;
+    document.querySelector("input[name='email']").placeholder = t.email;
+    document.querySelector("input[name='phone']").placeholder = t.phone;
+    document.querySelector("input[name='company']").placeholder = t.company;
+    document.querySelector("textarea[name='message']").placeholder = t.message;
+    document.querySelector("button[type='submit']").textContent = t.submit;
+  }
+</script>
+
+  
 </body>
 
