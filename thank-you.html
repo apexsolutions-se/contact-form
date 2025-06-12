@@ -22,14 +22,27 @@
       font-size: 18px;
     }
     a {
-      color: #01D1FC;
-      text-decoration: underline;
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #01D1FC;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: bold;
+      margin-top: 20px;
+      cursor: pointer;
     }
+    a:hover {
+      background-color: #00b8df;
+    }
+
   </style>
 </head>
 <body>
   <h1>Thank you for your message!</h1>
   <p>We’ll get back to you as soon as possible.</p>
-  <p><a href="https://apexsolutions.se">← Back to Home</a></p>
+  <a href="https://apexsolutions.se" class="back-button">← Back to Home</a>
 </body>
 </html>
