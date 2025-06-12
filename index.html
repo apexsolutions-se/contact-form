@@ -66,11 +66,12 @@
   </style>
 </head>
 <body>
-  <div class="container">
-      <div style="text-align: right; margin-bottom: 10px;">
-        <button type="button" onclick="setLanguage('en')">English</button>
-        <button type="button" onclick="setLanguage('sv')">Svenska</button>
-  </div>
+    <div style="position: absolute; top: 20px; right: 20px;">
+      <select id="language-select" onchange="setLanguage(this.value)" style="background: transparent; color: #01D1FC; border: 1px solid #01D1FC; border-radius: 6px; padding: 4px;">
+        <option value="en">English</option>
+        <option value="sv">Svenska</option>
+      </select>
+    </div>
     
     <p class="heading">Let’s build something together.<br>Fill out the form and we’ll get back to you as soon as possible.</p>
 
