@@ -26,6 +26,12 @@
       background: transparent;
     }
 
+    @font-face {
+      font-family: 'mokoto';
+      src: url('fonts/mokoto.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
     nav a {
       color: white;
       text-decoration: none;
@@ -64,6 +70,7 @@
     }
 
     .hero h1 {
+      font-family: 'mokoto', sans-serif;
       font-size: 28px;
       margin-bottom: 30px;
       font-weight: normal;
@@ -121,19 +128,23 @@
 </head>
 <body>
 
+  <!-- Navigation Bar -->
   <header>
     <nav>
       <a href="#">HOME</a>
       <a href="#">PORTFOLIO</a>
       <a href="index.html">CONTACT</a>
-      <span class="language-switcher">
-        <select>
-          <option>ENGLISH</option>
-          <option>SVENSKA</option>
-        </select>
-      </span>
     </nav>
   </header>
+  
+  <!-- Language Dropdown (styled and positioned like index.html) -->
+  <div class="language-switcher">
+    <select id="language-select">
+      <option value="en">English</option>
+      <option value="sv">Svenska</option>
+    </select>
+  </div>
+
 
   <div class="hero">
     <img src="assets/apexsolutionslogo.png" alt="Apex Solutions Logo">
