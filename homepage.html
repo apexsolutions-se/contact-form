@@ -293,17 +293,26 @@
 </section>
 
 
-<script>
-  document.addEventListener("scroll", () => {
-    const parallaxElements = document.querySelectorAll(".parallax");
-    const scrollTop = window.scrollY;
 
-    parallaxElements.forEach(el => {
-      const speed = parseFloat(el.dataset.speed) || 0.5;
-      el.style.transform = `translateY(${scrollTop * speed}px)`;
-    });
+  <script>
+  const heroInner = document.querySelector('.hero-inner');
+  const fadeStart = 0;    // px from top to start fading
+  const fadeEnd = 300;    // px from top to fully faded
+
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    const opacity = 1 - scrollY / (fadeEnd - fadeStart);
+    
+    if (scrollY > fadeEnd) {
+      heroInner.classList.add('fade-out');
+    } else {
+      heroInner.classList.remove('fade-out');
+      heroInner.style.opacity = opacity;
+      heroInner.style.transform = `translateY(${scrollY * 0.2}px)`;
+    }
   });
 </script>
+
 
 
 </body>
