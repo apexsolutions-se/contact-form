@@ -142,20 +142,17 @@
 <body>
 
   <!-- Navigation Bar -->
-  <header>
-    <nav>
-      <a href="#">HOME</a>
-      <a href="#">PORTFOLIO</a>
-      <a href="index.html">CONTACT</a>
-    </nav>
-      <!-- Language Dropdown (styled and positioned like index.html) -->
-  <div class="language-switcher">
-    <select id="language-select">
-      <option value="en">English</option>
-      <option value="sv">Svenska</option>
-    </select>
+   <div class="navbar">
+    <a href="homepage.html">HOME</a>
+    <a href="#">PORTFOLIO</a>
+    <a href="index.html">CONTACT</a>
+    <div class="language-switcher">
+      <select id="language-select" onchange="setLanguage(this.value)">
+        <option value="en">English</option>
+        <option value="sv">Svenska</option>
+      </select>
+    </div>
   </div>
-  </header>
   
 
 
