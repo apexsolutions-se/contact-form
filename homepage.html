@@ -1,1 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Apex Solutions</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('assets/background.png') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Inter', sans-serif;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 20px 40px;
+      background: transparent;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 30px;
+      font-size: 14px;
+      letter-spacing: 0.1em;
+    }
+
+    .language-switcher {
+      margin-left: 20px;
+    }
+
+    .language-switcher select {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: white;
+      border: 1px solid #01D1FC;
+      border-radius: 5px;
+      padding: 5px 10px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .hero {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .hero img {
+      max-width: 220px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: 28px;
+      margin-bottom: 30px;
+      font-weight: normal;
+      letter-spacing: 0.15em;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .buttons a {
+      text-decoration: none;
+      padding: 12px 24px;
+      font-size: 14px;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: 0.3s ease;
+    }
+
+    .btn-contact {
+      background-color: #01D1FC;
+      color: black;
+    }
+
+    .btn-contact:hover {
+      background-color: #00aacc;
+    }
+
+    .btn-learn {
+      background-color: transparent;
+      color: white;
+      border: 1px solid white;
+    }
+
+    .btn-learn:hover {
+      background-color: white;
+      color: black;
+    }
+
+    @media (max-width: 600px) {
+      nav a {
+        margin-left: 15px;
+        font-size: 12px;
+      }
+
+      .buttons a {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="#">HOME</a>
+      <a href="#">PORTFOLIO</a>
+      <a href="index.html">CONTACT</a>
+      <span class="language-switcher">
+        <select>
+          <option>ENGLISH</option>
+          <option>SVENSKA</option>
+        </select>
+      </span>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <img src="assets/apexsolutionslogo.png" alt="Apex Solutions Logo">
+    <h1>POWERFUL WEBSITES. REAL RESULTS.</h1>
+    <div class="buttons">
+      <a href="index.html" class="btn-contact">CONTACT US</a>
+      <a href="#" class="btn-learn">LEARN MORE</a>
+    </div>
+  </div>
+
+</body>
+</html>
 
