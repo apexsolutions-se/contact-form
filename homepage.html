@@ -78,16 +78,26 @@
     }
 
     .hero-inner {
-      position: sticky;
+      position: fixed;
       top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100vh;
       text-align: center;
       z-index: 2;
+      pointer-events: none; /* prevents hero content from blocking clicks */
+      transition: opacity 0.3s ease, transform 0.3s ease;
     }
+
+    .hero-inner.fade-out {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+
 
     .hero img {
       max-width: 360px;
