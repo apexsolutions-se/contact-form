@@ -127,6 +127,73 @@
       color: black;
     }
 
+    /*info section*/
+    .info-section {
+      background: url('assets/bodybackground.png') no-repeat center center;
+      background-size: cover;
+      padding: 80px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 40px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .text-content {
+      flex: 1;
+      max-width: 600px;
+      color: white;
+    }
+    
+    .text-content h2 {
+      font-family: 'mokoto', sans-serif;
+      font-size: 20px;
+      line-height: 1.4;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+    
+    .text-content p {
+      font-family: 'Lato', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      color: white;
+    }
+    
+    .btn-quote {
+      display: inline-block;
+      padding: 12px 24px;
+      border: 1px solid #01D1FC;
+      color: #01D1FC;
+      text-decoration: none;
+      border-radius: 6px;
+      font-family: 'Lato', sans-serif;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    
+    .btn-quote:hover {
+      background-color: #01D1FC;
+      color: black;
+    }
+    
+    .image-content {
+      flex: 1;
+      max-width: 400px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .image-content img {
+      max-width: 100%;
+      height: auto;
+    }
+
+
     @media (max-width: 600px) {
       nav a {
         margin-left: 15px;
