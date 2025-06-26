@@ -127,18 +127,16 @@
     }
 
     /*info section*/
-    .info-section {
-      min-height: 80vh;
-      background: url('assets/bodybackground.png') no-repeat center center;
-      background-size: cover;
-      padding: 80px 80px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 40px;
+     .info-section {
       position: relative;
-      z-index: 1;
+      overflow: hidden;
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 80px 80px;
+      gap: 40px;
+      flex-wrap: wrap;
     }
     
     .text-content {
@@ -194,6 +192,24 @@
       height: auto;
     }
 
+    .parallax-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('assets/bodybackground.png') no-repeat center center;
+      background-size: cover;
+      z-index: 0;
+      will-change: transform;
+    }
+    
+    .text-content,
+    .image-content {
+      position: relative;
+      z-index: 1;
+    }
+
 
     @media (max-width: 600px) {
       nav a {
@@ -235,11 +251,13 @@
   </div>
 
   <!-- LANDING PAGE SECTION -->
-<section class="info-section parallax" data-speed="0.3">
+<section class="info-section">
+  <div class="parallax-bg" data-speed="0.3"></div> <!-- This is the moving background -->
+  
   <div class="text-content">
     <h2>LANDING PAGES THAT TURN VISITORS INTO ACTION-TAKERS</h2>
     <p>
-      Every landing page we build is crafted with a clear objective: to guide users toward a specific action—whether it’s a purchase, a sign-up, or a conversation. Our team combines clean visuals with strategic copy and UX best practices to help you meet your campaign goals efficiently and with impact.
+      Every landing page we build is crafted with a clear objective...
     </p>
     <a href="#" class="btn-quote">GET A QUOTE</a>
   </div>
@@ -247,6 +265,7 @@
     <img src="assets/landingpage-icon.png" alt="Landing Page Icon" />
   </div>
 </section>
+
 
 <script>
   document.addEventListener("scroll", () => {
