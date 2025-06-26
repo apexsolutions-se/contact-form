@@ -65,15 +65,13 @@
       cursor: pointer;
     }
 
-    .hero {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 40px 20px;
-      min-height: 100vh;    
+      .hero {
+      min-height: 100vh;
+      background-attachment: fixed;
+      background-position: center;
+      background-size: cover;
     }
+
 
     .hero img {
       max-width: 360px;
@@ -128,13 +126,13 @@
 
     /*info section*/
     .info-section {
-      min-height: 80vh;
-      background: url('assets/bodybackground.png') no-repeat center center;
+      min-height: 100vh;
+      background: url('assets/bodybackground.png') center center fixed;
       background-size: cover;
-      padding: 80px 80px;
+      padding: 80px 40px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
       flex-wrap: wrap;
       gap: 40px;
       position: relative;
@@ -193,6 +191,15 @@
       max-width: 100%;
       height: auto;
     }
+
+    .hero,
+    .info-section {
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
 
 
     @media (max-width: 600px) {
