@@ -235,7 +235,7 @@
   </div>
 
   <!-- LANDING PAGE SECTION -->
-<section class="info-section">
+<section class="info-section parallax" data-speed="0.3">
   <div class="text-content">
     <h2>LANDING PAGES THAT TURN VISITORS INTO ACTION-TAKERS</h2>
     <p>
@@ -248,6 +248,17 @@
   </div>
 </section>
 
+<script>
+  document.addEventListener("scroll", () => {
+    const parallaxElements = document.querySelectorAll(".parallax");
+    const scrollTop = window.scrollY;
+
+    parallaxElements.forEach(el => {
+      const speed = parseFloat(el.dataset.speed) || 0.5;
+      el.style.transform = `translateY(${scrollTop * speed}px)`;
+    });
+  });
+</script>
 
 
 </body>
