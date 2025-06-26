@@ -77,21 +77,21 @@
       position: relative;
     }
 
-    .hero-inner {
+   .hero-inner {
       position: fixed;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100vh;
+      right: 0;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      height: 100vh;
       text-align: center;
       z-index: 2;
-      pointer-events: none;
-      transition: opacity 0.3s ease, transform 0.3s ease;
+      pointer-events: none; /* So it doesn't block scrolling or clicks */
     }
+
 
 
     .hero-inner.fade-out {
@@ -295,24 +295,18 @@
 </section>
 
 
-
 <script>
-  const heroInner = document.querySelector('.hero-inner');
-  const fadeStart = 0;
-  const fadeEnd = window.innerHeight; // fade out after 100vh scroll
-  const maxFadeDistance = 100; // how far it should move up
-
-  window.addEventListener('scroll', () => {
+  window.addEventListener("scroll", () => {
+    const heroInner = document.querySelector('.hero-inner');
+    const fadeStart = 0;
+    const fadeEnd = window.innerHeight / 1.5;
     const scrollY = window.scrollY;
 
-    // Fade out when scrolling past hero
-    if (scrollY > fadeEnd) {
-      heroInner.classList.add('fade-out');
-    } else {
-      heroInner.classList.remove('fade-out');
+    if (scrollY <= fadeEnd) {
       const opacity = 1 - scrollY / fadeEnd;
       heroInner.style.opacity = opacity;
-      heroInner.style.transform = `translateY(-${scrollY * 0.2}px)`;
+    } else {
+      heroInner.style.opacity = 0;
     }
   });
 </script>
