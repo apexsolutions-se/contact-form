@@ -32,13 +32,32 @@
       font-weight: normal;
       font-style: normal;
     }
-    nav a {
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      z-index: 999;
+      background: transparent;
+    }
+    
+    .navbar nav {
+      display: flex;
+      align-items: center;
+    }
+    
+    .navbar a {
       color: white;
       text-decoration: none;
       margin-left: 30px;
       font-size: 14px;
       letter-spacing: 0.1em;
     }
+
 
     .language-switcher {
       margin-left: 20px;
