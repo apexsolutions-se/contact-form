@@ -19,6 +19,19 @@
       min-height: 100vh;
     }
 
+    .section-container {
+      max-width: 1140px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 20px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+
     @font-face {
       font-family: 'mokoto';
       src: url('fonts/mokoto.woff') format('woff');
@@ -27,44 +40,44 @@
     }
     
     .navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  padding: 20px 40px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  z-index: 999;
-  background: transparent;
-}
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      z-index: 999;
+      background: transparent;
+    }
 
-.navbar nav {
-  display: flex;
-  align-items: center;
-}
+    .navbar nav {
+      display: flex;
+      align-items: center;
+    }
+    
+    .navbar a {
+      color: #ffffff !important;
+      text-decoration: none;
+      margin-left: 30px;
+      font-size: 14px;
+      letter-spacing: 0.1em;
+    }
+    
+    .language-switcher {
+      margin-left: 20px;
+    }
 
-.navbar a {
-  color: #ffffff !important;
-  text-decoration: none;
-  margin-left: 30px;
-  font-size: 14px;
-  letter-spacing: 0.1em;
-}
-
-.language-switcher {
-  margin-left: 20px;
-}
-
-.language-switcher select {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: white;
-  border: 1px solid #01D1FC;
-  border-radius: 5px;
-  padding: 5px 10px;
-  font-size: 14px;
-  cursor: pointer;
-}
+    .language-switcher select {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: white;
+      border: 1px solid #01D1FC;
+      border-radius: 5px;
+      padding: 5px 10px;
+      font-size: 14px;
+      cursor: pointer;
+    }
 
     .hero {
       flex: 1;
@@ -74,6 +87,7 @@
       justify-content: center;
       text-align: center;
       padding: 40px 20px;
+      height: 1024px;
     }
 
     .hero img {
@@ -129,6 +143,7 @@
 
     /*info section*/
     .info-section {
+      height: 1024px;
       background: url('assets/bodybackground.png') no-repeat center center;
       background-size: cover;
       padding: 80px 40px;
