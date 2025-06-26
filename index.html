@@ -21,17 +21,52 @@
       min-height: 100vh;
       box-sizing: border-box;
     }
-  
-   .container {
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      z-index: 999;
+      background: transparent;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      margin-left: 30px;
+      font-size: 14px;
+      letter-spacing: 0.1em;
+    }
+
+    .language-switcher {
+      margin-left: 20px;
+    }
+
+    .language-switcher select {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: white;
+      border: 1px solid #01D1FC;
+      border-radius: 5px;
+      padding: 5px 10px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .container {
       width: 100%;
       max-width: 480px;
       display: flex;
       flex-direction: column;
       align-items: center;
       padding: 10px;
+      margin-top: 100px; /* offset for fixed navbar */
     }
 
-  
     .heading {
       font-family: 'mokoto', sans-serif;
       font-size: 14px;
@@ -44,7 +79,7 @@
       display: block;
     }
 
-      .heading-wrapper {
+    .heading-wrapper {
       max-width: 700px;
       margin: 0 auto 20px auto;
       padding: 0 20px;
@@ -53,12 +88,12 @@
 
     form {
       width: 100%;
-      background-color: rgba(0, 0, 0, 0.4); /* optional for contrast */
+      background-color: rgba(0, 0, 0, 0.4);
       border-radius: 10px;
       padding: 20px;
       box-sizing: border-box;
     }
-  
+
     input, textarea {
       width: 100%;
       margin-bottom: 12px;
@@ -70,12 +105,12 @@
       font-size: 15px;
       box-sizing: border-box;
     }
-  
+
     input::placeholder,
     textarea::placeholder {
       color: #01D1FC;
     }
-  
+
     button {
       width: 100%;
       padding: 12px;
@@ -87,73 +122,68 @@
       font-size: 15px;
       font-weight: bold;
     }
-  
+
     @font-face {
       font-family: 'mokoto';
       src: url('https://apexsolutions-se.github.io/contact-form/fonts/mokoto.woff') format('woff');
       font-weight: normal;
       font-style: normal;
     }
-  
-    /* Language dropdown style */
-    .language-switcher {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      z-index: 999;
-    }
-  
-    .language-switcher select {
-      background-color: rgba(255, 255, 255, 0.1);
-      color: white;
-      border: 1px solid #01D1FC;
-      border-radius: 5px;
-      padding: 5px 10px;
-      font-size: 14px;
-      cursor: pointer;
-    }
-  
+
     @media (max-width: 480px) {
       .heading {
         font-size: 14px;
         padding: 0 10px;
       }
-  
+
       form {
         padding: 15px;
       }
-  
+
       input, textarea, button {
         font-size: 14px;
         padding: 10px;
       }
-  
+
       .language-switcher select {
         font-size: 13px;
         padding: 4px 8px;
       }
+
+      .navbar {
+        padding: 15px;
+      }
+
+      .navbar a {
+        margin-left: 15px;
+        font-size: 13px;
+      }
     }
   </style>
-
 </head>
 <body>
-  
-  <div class="container">
-    <!-- Language Dropdown -->
+
+  <!-- Navigation Bar -->
+  <div class="navbar">
+    <a href="homepage.html">HOME</a>
+    <a href="#">PORTFOLIO</a>
+    <a href="index.html">CONTACT</a>
     <div class="language-switcher">
       <select id="language-select" onchange="setLanguage(this.value)">
         <option value="en">English</option>
         <option value="sv">Svenska</option>
       </select>
     </div>
-
-          <!-- Headline -->
-  <div class="heading-wrapper">
-    <p class="heading">
-      Let’s build something together.<br>
-      Fill out the form and we’ll get back to you as soon as possible.
-    </p>
   </div>
+
+  <div class="container">
+    <!-- Headline -->
+    <div class="heading-wrapper">
+      <p class="heading">
+        Let’s build something together.<br>
+        Fill out the form and we’ll get back to you as soon as possible.
+      </p>
+    </div>
 
     <!-- Contact Form -->
     <form action="https://formsubmit.co/imperialkatelyn@gmail.com" method="POST">
@@ -170,7 +200,7 @@
   <!-- Language Script -->
   <script>
     const translations = {
-          en: {
+      en: {
         heading: "Let’s build something together.<br>Fill out the form and we’ll get back to you as soon as possible.",
         name: "Name",
         email: "Email",
@@ -202,3 +232,4 @@
     }
   </script>
 </body>
+</html>
