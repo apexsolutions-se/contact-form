@@ -73,6 +73,20 @@
       text-align: center;
       padding: 40px 20px;
       min-height: 100vh;    
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-inner {
+      position: sticky;
+      top: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      z-index: 2;
     }
 
     .hero img {
@@ -242,6 +256,7 @@
 
 
   <div class="hero">
+  <div class="hero-inner">
     <img src="assets/apexsolutionslogo.png" alt="Apex Solutions Logo">
     <h1>POWERFUL WEBSITES. REAL RESULTS.</h1>
     <div class="buttons">
@@ -249,6 +264,7 @@
       <a href="#" class="btn-learn">LEARN MORE</a>
     </div>
   </div>
+</div>
 
   <!-- LANDING PAGE SECTION -->
 <section class="info-section">
