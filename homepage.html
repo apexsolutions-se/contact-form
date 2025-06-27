@@ -238,20 +238,27 @@
       z-index: 1;
     }
 
-    /* wrapper gives each section a full-screen stage */
-    .section-wrapper {
-      position: relative;
-      height: 200vh;   /* one viewport tall */
-      overflow: hidden;
-    }
-    
-    /* first section sticks to the top until pushed away by the next one */
-    .info-section.pinned {
-      position: sticky;
-      top: 0;
-      height: 100vh;   /* keep it full-screen while pinned */
-      z-index: 2;      /* must be above the navbar (if navbar z-index is 1) */
-    }
+   .stacked-wrapper {
+  position: relative;
+  height: 200vh; /* Makes room for scrolling */
+  overflow: hidden;
+}
+
+.info-section.pinned {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  z-index: 1;
+}
+
+.info-section.overlay {
+  position: absolute;
+  top: 100vh;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 2;
+}
 
 
 
@@ -319,8 +326,29 @@
 </div>
 
 <!-- WEBSITE SECTION (scrolls over the first) -->
-<div class="section-wrapper">
-  <section class="info-section" id="section2">
+<div class="stacked-wrapper">
+  <!-- First Section: Landing Page -->
+  <section class="info-section pinned" id="section1">
+    <div class="parallax-bg" data-speed="0.3"></div>
+
+    <div class="text-content">
+      <h2>LANDING PAGES THAT TURN VISITORS INTO ACTION-TAKERS</h2>
+      <p>
+        Every landing page we build is crafted with a clear objective: to guide users
+        toward a specific action—whether it’s a purchase, a sign-up, or a conversation.
+        Our team combines clean visuals with strategic copy and UX best practices
+        to help you meet your campaign goals efficiently and with impact.
+      </p>
+      <a href="#" class="btn-quote">GET A QUOTE</a>
+    </div>
+
+    <div class="image-content">
+      <img src="assets/landingpage-icon.png" alt="Landing Page Icon" />
+    </div>
+  </section>
+
+  <!-- Second Section: Websites -->
+  <section class="info-section overlay" id="section2">
     <div class="parallax-bg" data-speed="0.3"></div>
 
     <div class="image-content">
@@ -340,6 +368,7 @@
     </div>
   </section>
 </div>
+
 
 
 
