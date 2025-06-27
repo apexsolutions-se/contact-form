@@ -65,38 +65,19 @@
       cursor: pointer;
     }
 
-    /* NEW: Fullpage section styles */
-    .fullpage-section {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
+    .hero,
+    .info-section {
+      position: -webkit-sticky;
+      position: sticky;
+      top: 0;
+      min-height: 100vh;
       width: 100vw;
-      height: 100vh;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.6s cubic-bezier(.86,0,.07,1);
       z-index: 2;
+      background: transparent;
       display: flex;
-      align-items: stretch;
-      justify-content: stretch;
-    }
-    .fullpage-section.active {
-      opacity: 1;
-      pointer-events: all;
-      z-index: 10;
-    }
-
-    .hero {
-      display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      text-align: center;
-      width: 100%;
-      height: 100vh;
-      min-height: 100vh;
-      overflow: hidden;
-      position: relative;
-      background: transparent;
+      flex-direction: column;
     }
 
     .hero-inner {
@@ -107,7 +88,7 @@
       height: 100vh;
       text-align: center;
       z-index: 5;
-      pointer-events: none; /* So it doesn't block scrolling or clicks */
+      pointer-events: none;
     }
 
     .hero img {
@@ -161,21 +142,13 @@
       color: black;
     }
 
-    /*info section*/
     .info-section {
-      position: relative;
       overflow: hidden;
-      min-height: 100vh;
-      width: 100vw;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
       padding: 80px 80px;
       gap: 40px;
       flex-wrap: wrap;
       border-radius: 50px 50px;
       z-index: 50;
-      background: transparent;
     }
 
     .text-content {
@@ -276,7 +249,6 @@
   </style>
 </head>
 <body>
-  <!-- Navigation Bar -->
   <div class="navbar">
     <a href="homepage.html">HOME</a>
     <a href="#">PORTFOLIO</a>
@@ -289,88 +261,60 @@
     </div>
   </div>
 
-  <!-- FULLPAGE SECTIONS -->
-  <div class="fullpage-section active" id="section-0">
-    <div class="hero">
-      <div class="hero-inner">
-        <img src="assets/apexsolutionslogo.png" alt="Apex Solutions Logo">
-        <h1>POWERFUL WEBSITES. REAL RESULTS.</h1>
-        <div class="buttons">
-          <a href="index.html" class="btn-contact">CONTACT US</a>
-          <a href="#" class="btn-learn">LEARN MORE</a>
-        </div>
+  <div class="hero">
+    <div class="hero-inner">
+      <img src="assets/apexsolutionslogo.png" alt="Apex Solutions Logo">
+      <h1>POWERFUL WEBSITES. REAL RESULTS.</h1>
+      <div class="buttons">
+        <a href="index.html" class="btn-contact">CONTACT US</a>
+        <a href="#" class="btn-learn">LEARN MORE</a>
       </div>
     </div>
   </div>
 
-  <div class="fullpage-section" id="section-1">
-    <section class="info-section">
-      <div class="parallax-bg" data-speed="0.3"></div>
-      <div class="text-content">
-        <h2>LANDING PAGES THAT TURN VISITORS INTO ACTION-TAKERS</h2>
-        <p>
-          Every landing page we build is crafted with a clear objective: to guide users toward a specific action—whether it’s a purchase, a sign-up, or a conversation. Our team combines clean visuals with strategic copy and UX best practices to help you meet your campaign goals efficiently and with impact.
-        </p>
-        <a href="#" class="btn-quote">GET A QUOTE</a>
-      </div>
-      <div class="image-content">
-        <img src="assets/landingpage-icon.png" alt="Landing Page Icon" />
-      </div>
-    </section>
-  </div>
+  <section class="info-section">
+    <div class="parallax-bg" data-speed="0.3"></div>
+    <div class="text-content">
+      <h2>LANDING PAGES THAT TURN VISITORS INTO ACTION-TAKERS</h2>
+      <p>
+        Every landing page we build is crafted with a clear objective: to guide users toward a specific action—whether it’s a purchase, a sign-up, or a conversation. Our team combines clean visuals with strategic copy and UX best practices to help you meet your campaign goals efficiently and with impact.
+      </p>
+      <a href="#" class="btn-quote">GET A QUOTE</a>
+    </div>
+    <div class="image-content">
+      <img src="assets/landingpage-icon.png" alt="Landing Page Icon" />
+    </div>
+  </section>
 
-  <div class="fullpage-section" id="section-2">
-    <section class="info-section">
-      <div class="parallax-bg" data-speed="0.3"></div>
-      <div class="image-content">
-        <img src="assets/websites-icon.png" alt="Websites Icon" />
-      </div>
-      <div class="text-content">
-        <h2>WEBSITES BUILT FOR IMPACT AND LONGEVITY</h2>
-        <p>
-          A strong online presence starts with a well-built website. At Apex Solutions, we create responsive, scalable, and user-centered websites designed to represent your brand, engage your audience, and support your long-term growth. Whether you're building a company from scratch or evolving an established brand, we tailor each site to fit your goals, industry, and style.
-        </p>
-        <a href="#" class="btn-quote">GET IN TOUCH</a>
-      </div>
-    </section>
-  </div>
+  <section class="info-section">
+    <div class="parallax-bg" data-speed="0.3"></div>
+    <div class="image-content">
+      <img src="assets/websites-icon.png" alt="Websites Icon" />
+    </div>
+    <div class="text-content">
+      <h2>WEBSITES BUILT FOR IMPACT AND LONGEVITY</h2>
+      <p>
+        A strong online presence starts with a well-built website. At Apex Solutions, we create responsive, scalable, and user-centered websites designed to represent your brand, engage your audience, and support your long-term growth. Whether you're building a company from scratch or evolving an established brand, we tailor each site to fit your goals, industry, and style.
+      </p>
+      <a href="#" class="btn-quote">GET IN TOUCH</a>
+    </div>
+  </section>
 
-  <!-- Fullpage Scroll Logic -->
   <script>
-    const sections = document.querySelectorAll('.fullpage-section');
-    // Set body height so the scrollbar appears
-    document.body.style.height = (window.innerHeight * sections.length) + 'px';
-
-    function handleSectionScroll() {
+    // Optional: Fade out hero as you scroll
+    window.addEventListener("scroll", () => {
+      const heroInner = document.querySelector('.hero-inner');
+      const fadeStart = 0;
+      const fadeEnd = window.innerHeight / 1.5;
       const scrollY = window.scrollY;
-      const winH = window.innerHeight;
-      let activeIdx = 0;
-      for (let i = 0; i < sections.length; i++) {
-        const top = i * winH;
-        const bottom = (i + 1) * winH;
-        if (scrollY >= top && scrollY < bottom) {
-          activeIdx = i;
-          break;
-        } else if (scrollY >= (sections.length - 1) * winH) {
-          activeIdx = sections.length - 1;
-        }
-      }
-      sections.forEach((section, idx) => {
-        if (idx === activeIdx) {
-          section.classList.add('active');
-        } else {
-          section.classList.remove('active');
-        }
-      });
-    }
 
-    window.addEventListener('scroll', handleSectionScroll);
-    window.addEventListener('resize', function() {
-      document.body.style.height = (window.innerHeight * sections.length) + 'px';
-      handleSectionScroll();
+      if (scrollY <= fadeEnd) {
+        const opacity = 1 - scrollY / fadeEnd;
+        heroInner.style.opacity = opacity;
+      } else {
+        heroInner.style.opacity = 0;
+      }
     });
-    // Initial call
-    handleSectionScroll();
   </script>
 </body>
 </html>
