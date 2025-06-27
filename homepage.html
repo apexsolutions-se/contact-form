@@ -287,17 +287,31 @@
       .offer-icon { width: 32px; height: 32px; }
     }
 
-    .offer-section-title {
+.offer-section-title {
   text-align: center;
   font-family: 'mokoto', sans-serif;
-  font-size: 20px;
-  margin-bottom: 32px;
+  font-size: 2.5rem;
+  margin-bottom: 22px;
   margin-top: 0;
   letter-spacing: 0.04em;
   color: #fff;
-  z-index: 5;
 }
 
+    .offer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  width: 100%;
+}
+
+    .offer-section-container {
+  max-width: 1150px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
 
     @media (max-width: 600px) {
@@ -392,12 +406,12 @@
 </section>
 
 
-    <section class="info-section">
-       <div class="parallax-bg" data-speed="0.3"></div> <!-- This is the moving background -->
-      
-      <h2 class="offer-section-title">WHAT WE OFFER</h2>
-      
-        <div class="offer-grid">
+<section class="info-section">
+  <div class="parallax-bg" data-speed="0.3"></div>
+  
+  <div class="offer-section-container">
+    <h2 class="offer-section-title">WHAT WE OFFER</h2>
+    <div class="offer-grid">
   <!-- Card 1 -->
   <div class="offer-card">
     <img src="assets/webdesign-icon.png" alt="Web Design Icon" class="offer-icon" />
@@ -431,6 +445,7 @@
     </div>
   </div>
 </div>
+  </div>
     </section>
   
 <script>
