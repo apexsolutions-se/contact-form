@@ -242,6 +242,47 @@
       margin-top: 40px;        /* Or adjust this value as needed */
     }
 
+    .offer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 24px;
+}
+.offer-card {
+  background: rgba(38, 86, 143, 0.45);
+  border-radius: 24px;
+  padding: 20px 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  box-sizing: border-box;
+  box-shadow: 0 6px 32px 0 rgba(30,40,90,0.10);
+}
+.offer-icon {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  margin-right: 10px;
+}
+.offer-card h3 {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.3rem;
+  margin: 0 0 12px 0;
+  font-weight: bold;
+  color: #fff;
+}
+.offer-card p {
+  font-size: 1rem;
+  margin: 0;
+  color: #fff;
+}
+@media (max-width: 900px) {
+  .offer-grid { grid-template-columns: 1fr; }
+  .offer-card { padding: 16px 10px; }
+  .offer-icon { width: 32px; height: 32px; }
+}
+
+
     @media (max-width: 600px) {
       nav a {
         margin-left: 15px;
@@ -339,7 +380,41 @@
       
       <div class="text-content">
         <h2>WHAT WE OFFER</h2>
-    
+        <div class="offer-grid">
+  <!-- Card 1 -->
+  <div class="offer-card">
+    <img src="assets/webdesign-icon.png" alt="Web Design Icon" class="offer-icon" />
+    <div>
+      <h3>WEB DESIGN</h3>
+      <p>Custom-built websites and landing pages designed for clarity, performance, and conversion. Whether you’re running ads, building a personal brand, or launching a product, we create scalable digital experiences tailored to your goals.</p>
+    </div>
+  </div>
+  <!-- Card 2 -->
+  <div class="offer-card">
+    <img src="assets/copywriting-icon.png" alt="Copywriting Icon" class="offer-icon" />
+    <div>
+      <h3>COPYWRITING</h3>
+      <p>Words that work. We craft messaging that aligns with your brand voice, captures attention, and drives action—headlines, web content, product copy, and more.</p>
+    </div>
+  </div>
+  <!-- Card 3 -->
+  <div class="offer-card">
+    <img src="assets/seo-icon.png" alt="SEO Icon" class="offer-icon" />
+    <div>
+      <h3>SEO</h3>
+      <p>Built-in visibility from the start. Our websites are structured and optimized to meet current SEO standards, helping your brand get discovered and rank better across search engines.</p>
+    </div>
+  </div>
+  <!-- Card 4 -->
+  <div class="offer-card">
+    <img src="assets/support-icon.png" alt="Ongoing Support Icon" class="offer-icon" />
+    <div>
+      <h3>Ongoing Support & Strategy</h3>
+      <p>Beyond launch, we help you stay sharp. From regular updates to strategic enhancements, our monthly plans ensure your site stays fresh, fast, and aligned with your evolving goals.</p>
+    </div>
+  </div>
+</div>
+  
     </section>
   
 <script>
