@@ -15,8 +15,8 @@
       font-family: 'Inter', sans-serif;
       color: white;
       min-height: 80vh;
+      overflow-x: hidden;
     }
-
 
     @font-face {
       font-family: 'mokoto';
@@ -24,7 +24,7 @@
       font-weight: normal;
       font-style: normal;
     }
-    
+
     .navbar {
       position: sticky;
       top: 0;
@@ -34,7 +34,7 @@
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      z-index: 1;
+      z-index: 20;
       background: transparent;
     }
 
@@ -42,7 +42,7 @@
       display: flex;
       align-items: center;
     }
-    
+
     .navbar a {
       color: #ffffff !important;
       text-decoration: none;
@@ -50,7 +50,7 @@
       font-size: 14px;
       letter-spacing: 0.1em;
     }
-    
+
     .language-switcher {
       margin-left: 20px;
     }
@@ -65,23 +65,41 @@
       cursor: pointer;
     }
 
+    /* NEW: Fullpage section styles */
+    .fullpage-section {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      width: 100vw;
+      height: 100vh;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.6s cubic-bezier(.86,0,.07,1);
+      z-index: 2;
+      display: flex;
+      align-items: stretch;
+      justify-content: stretch;
+    }
+    .fullpage-section.active {
+      opacity: 1;
+      pointer-events: all;
+      z-index: 10;
+    }
+
     .hero {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 40px 20px;
-      min-height: 100vh;    
+      width: 100%;
+      height: 100vh;
+      min-height: 100vh;
       overflow: hidden;
       position: relative;
+      background: transparent;
     }
 
     .hero-inner {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -92,25 +110,16 @@
       pointer-events: none; /* So it doesn't block scrolling or clicks */
     }
 
-
-
-
-    .hero-inner.fade-out {
-      opacity: 0;
-      transform: translateY(-50px);
-    }
-
-
     .hero img {
       max-width: 360px;
-      margin-top: 0; /* add this if not present */
+      margin-top: 0;
       margin-bottom: 0px;
     }
 
     .hero h1 {
       font-family: 'mokoto', sans-serif;
       font-size: 20px;
-      margine-top: 0px;
+      margin-top: 0px;
       margin-bottom: 30px;
       font-weight: normal;
       letter-spacing: 0.15em;
@@ -153,10 +162,11 @@
     }
 
     /*info section*/
-     .info-section {
+    .info-section {
       position: relative;
       overflow: hidden;
-      min-height: 80vh;
+      min-height: 100vh;
+      width: 100vw;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -165,15 +175,16 @@
       flex-wrap: wrap;
       border-radius: 50px 50px;
       z-index: 50;
+      background: transparent;
     }
-    
+
     .text-content {
       flex: 1;
       max-width: 600px;
       color: white;
       padding-left: 60px; 
     }
-    
+
     .text-content h2 {
       font-family: 'mokoto', sans-serif;
       font-size: 20px;
@@ -181,7 +192,7 @@
       margin-bottom: 20px;
       text-transform: uppercase;
     }
-    
+
     .text-content p {
       font-family: 'Lato', sans-serif;
       font-size: 16px;
@@ -189,7 +200,7 @@
       margin-bottom: 30px;
       color: white;
     }
-    
+
     .btn-quote {
       display: inline-block;
       padding: 12px 24px;
@@ -201,12 +212,12 @@
       font-weight: bold;
       transition: 0.3s;
     }
-    
+
     .btn-quote:hover {
       background-color: #01D1FC;
       color: black;
     }
-    
+
     .image-content {
       flex: 1;
       max-width: 600px;
@@ -214,7 +225,7 @@
       justify-content: center;
       align-items: center;
     }
-    
+
     .image-content img {
       max-width: 100%;
       height: auto;
@@ -231,13 +242,12 @@
       z-index: 0;
       will-change: transform;
     }
-    
+
     .text-content,
     .image-content {
       position: relative;
       z-index: 1;
     }
-
 
     @media (max-width: 600px) {
       nav a {
@@ -249,13 +259,25 @@
         width: 100%;
         text-align: center;
       }
+      .info-section {
+        flex-direction: column;
+        padding: 40px 10px;
+        gap: 20px;
+        border-radius: 20px 20px;
+      }
+      .text-content {
+        padding-left: 0;
+        max-width: 100vw;
+      }
+      .image-content {
+        max-width: 100vw;
+      }
     }
   </style>
 </head>
 <body>
-
   <!-- Navigation Bar -->
-   <div class="navbar">
+  <div class="navbar">
     <a href="homepage.html">HOME</a>
     <a href="#">PORTFOLIO</a>
     <a href="index.html">CONTACT</a>
@@ -266,73 +288,89 @@
       </select>
     </div>
   </div>
-  
 
-
-  <div class="hero">
-  <div class="hero-inner">
-    <img src="assets/apexsolutionslogo.png" alt="Apex Solutions Logo">
-    <h1>POWERFUL WEBSITES. REAL RESULTS.</h1>
-    <div class="buttons">
-      <a href="index.html" class="btn-contact">CONTACT US</a>
-      <a href="#" class="btn-learn">LEARN MORE</a>
+  <!-- FULLPAGE SECTIONS -->
+  <div class="fullpage-section active" id="section-0">
+    <div class="hero">
+      <div class="hero-inner">
+        <img src="assets/apexsolutionslogo.png" alt="Apex Solutions Logo">
+        <h1>POWERFUL WEBSITES. REAL RESULTS.</h1>
+        <div class="buttons">
+          <a href="index.html" class="btn-contact">CONTACT US</a>
+          <a href="#" class="btn-learn">LEARN MORE</a>
+        </div>
+      </div>
     </div>
   </div>
-</div>
 
-  <!-- LANDING PAGE SECTION -->
-<section class="info-section">
-  <div class="parallax-bg" data-speed="0.3"></div> <!-- This is the moving background -->
-  
-  <div class="text-content">
-    <h2>LANDING PAGES THAT TURN VISITORS INTO ACTION-TAKERS</h2>
-    <p>
-      Every landing page we build is crafted with a clear objective: to guide users toward a specific action—whether it’s a purchase, a sign-up, or a conversation. Our team combines clean visuals with strategic copy and UX best practices to help you meet your campaign goals efficiently and with impact.
-    </p>
-    <a href="#" class="btn-quote">GET A QUOTE</a>
-  </div>
-  <div class="image-content">
-    <img src="assets/landingpage-icon.png" alt="Landing Page Icon" />
-  </div>
-</section>
-
-  <section class="info-section">
-  <div class="parallax-bg" data-speed="0.3"></div> <!-- Background for parallax -->
-
-  <div class="image-content">
-    <img src="assets/websites-icon.png" alt="Websites Icon" />
+  <div class="fullpage-section" id="section-1">
+    <section class="info-section">
+      <div class="parallax-bg" data-speed="0.3"></div>
+      <div class="text-content">
+        <h2>LANDING PAGES THAT TURN VISITORS INTO ACTION-TAKERS</h2>
+        <p>
+          Every landing page we build is crafted with a clear objective: to guide users toward a specific action—whether it’s a purchase, a sign-up, or a conversation. Our team combines clean visuals with strategic copy and UX best practices to help you meet your campaign goals efficiently and with impact.
+        </p>
+        <a href="#" class="btn-quote">GET A QUOTE</a>
+      </div>
+      <div class="image-content">
+        <img src="assets/landingpage-icon.png" alt="Landing Page Icon" />
+      </div>
+    </section>
   </div>
 
-  <div class="text-content">
-    <h2>WEBSITES BUILT FOR IMPACT AND LONGEVITY</h2>
-    <p>
-      A strong online presence starts with a well-built website. At Apex Solutions, we create responsive, scalable, and user-centered websites designed to represent your brand, engage your audience, and support your long-term growth. Whether you're building a company from scratch or evolving an established brand, we tailor each site to fit your goals, industry, and style.
-    </p>
-    <a href="#" class="btn-quote">GET IN TOUCH</a>
+  <div class="fullpage-section" id="section-2">
+    <section class="info-section">
+      <div class="parallax-bg" data-speed="0.3"></div>
+      <div class="image-content">
+        <img src="assets/websites-icon.png" alt="Websites Icon" />
+      </div>
+      <div class="text-content">
+        <h2>WEBSITES BUILT FOR IMPACT AND LONGEVITY</h2>
+        <p>
+          A strong online presence starts with a well-built website. At Apex Solutions, we create responsive, scalable, and user-centered websites designed to represent your brand, engage your audience, and support your long-term growth. Whether you're building a company from scratch or evolving an established brand, we tailor each site to fit your goals, industry, and style.
+        </p>
+        <a href="#" class="btn-quote">GET IN TOUCH</a>
+      </div>
+    </section>
   </div>
-</section>
 
+  <!-- Fullpage Scroll Logic -->
+  <script>
+    const sections = document.querySelectorAll('.fullpage-section');
+    // Set body height so the scrollbar appears
+    document.body.style.height = (window.innerHeight * sections.length) + 'px';
 
-
-<script>
-  window.addEventListener("scroll", () => {
-    const heroInner = document.querySelector('.hero-inner');
-    const fadeStart = 0;
-    const fadeEnd = window.innerHeight / 1.5;
-    const scrollY = window.scrollY;
-
-    if (scrollY <= fadeEnd) {
-      const opacity = 1 - scrollY / fadeEnd;
-      heroInner.style.opacity = opacity;
-    } else {
-      heroInner.style.opacity = 0;
+    function handleSectionScroll() {
+      const scrollY = window.scrollY;
+      const winH = window.innerHeight;
+      let activeIdx = 0;
+      for (let i = 0; i < sections.length; i++) {
+        const top = i * winH;
+        const bottom = (i + 1) * winH;
+        if (scrollY >= top && scrollY < bottom) {
+          activeIdx = i;
+          break;
+        } else if (scrollY >= (sections.length - 1) * winH) {
+          activeIdx = sections.length - 1;
+        }
+      }
+      sections.forEach((section, idx) => {
+        if (idx === activeIdx) {
+          section.classList.add('active');
+        } else {
+          section.classList.remove('active');
+        }
+      });
     }
-  });
-</script>
 
-
-
-
-
+    window.addEventListener('scroll', handleSectionScroll);
+    window.addEventListener('resize', function() {
+      document.body.style.height = (window.innerHeight * sections.length) + 'px';
+      handleSectionScroll();
+    });
+    // Initial call
+    handleSectionScroll();
+  </script>
 </body>
 </html>
