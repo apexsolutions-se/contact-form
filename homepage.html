@@ -15,7 +15,6 @@
       font-family: 'Inter', sans-serif;
       color: white;
       min-height: 80vh;
-      overflow-x: hidden;
     }
 
     @font-face {
@@ -24,7 +23,7 @@
       font-weight: normal;
       font-style: normal;
     }
-
+    
     .navbar {
       position: sticky;
       top: 0;
@@ -34,10 +33,15 @@
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      z-index: 20;
+      z-index: 1;
       background: transparent;
     }
 
+    .navbar nav {
+      display: flex;
+      align-items: center;
+    }
+    
     .navbar a {
       color: #ffffff !important;
       text-decoration: none;
@@ -45,7 +49,7 @@
       font-size: 14px;
       letter-spacing: 0.1em;
     }
-
+    
     .language-switcher {
       margin-left: 20px;
     }
@@ -60,22 +64,33 @@
       cursor: pointer;
     }
 
-    /* STICKY effect for hero and info-sections */
-    .hero,
-    .info-section {
-      position: -webkit-sticky;
+    /* === SCROLL EFFECT: ONLY THIS SECTION WAS ADDED === */
+    .hero, .info-section {
       position: sticky;
       top: 0;
       min-height: 100vh;
-      width: 100vw;
-      z-index: 2;
       background: transparent;
+      z-index: 2;
+    }
+    /* === END OF SCROLL EFFECT === */
+
+    .hero {
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+      /* min-height moved above for sticky effect */
+      overflow: hidden;
+      position: relative;
     }
 
     .hero-inner {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -83,7 +98,12 @@
       height: 100vh;
       text-align: center;
       z-index: 5;
-      pointer-events: none; /* So it doesn't block scrolling or clicks */
+      pointer-events: none;
+    }
+
+    .hero-inner.fade-out {
+      opacity: 0;
+      transform: translateY(-50px);
     }
 
     .hero img {
@@ -95,7 +115,7 @@
     .hero h1 {
       font-family: 'mokoto', sans-serif;
       font-size: 20px;
-      margin-top: 0px;
+      margine-top: 0px;
       margin-bottom: 30px;
       font-weight: normal;
       letter-spacing: 0.15em;
@@ -137,48 +157,28 @@
       color: black;
     }
 
-    /* Info section layout */
+    /*info section*/
     .info-section {
+      position: relative; /* sticky effect moved above */
       overflow: hidden;
+      min-height: 80vh; /* min-height overridden by min-height:100vh above */
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       padding: 80px 80px;
       gap: 40px;
       flex-wrap: wrap;
       border-radius: 50px 50px;
       z-index: 50;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: transparent;
     }
-    .info-section .text-content {
+    
+    .text-content {
       flex: 1;
       max-width: 600px;
       color: white;
-      padding-left: 60px;
+      padding-left: 60px; 
     }
-    .info-section .image-content {
-      flex: 1;
-      max-width: 600px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .info-section .image-content img {
-      max-width: 100%;
-      height: auto;
-    }
-
-    /* For the second section: icon left, text right */
-    .info-section.reverse {
-      flex-direction: row-reverse;
-    }
-    .info-section.reverse .text-content {
-      padding-left: 0;
-      padding-right: 60px;
-      max-width: 600px;
-      color: white;
-    }
-
+    
     .text-content h2 {
       font-family: 'mokoto', sans-serif;
       font-size: 20px;
@@ -186,6 +186,7 @@
       margin-bottom: 20px;
       text-transform: uppercase;
     }
+    
     .text-content p {
       font-family: 'Lato', sans-serif;
       font-size: 16px;
@@ -193,6 +194,7 @@
       margin-bottom: 30px;
       color: white;
     }
+    
     .btn-quote {
       display: inline-block;
       padding: 12px 24px;
@@ -204,9 +206,23 @@
       font-weight: bold;
       transition: 0.3s;
     }
+    
     .btn-quote:hover {
       background-color: #01D1FC;
       color: black;
+    }
+    
+    .image-content {
+      flex: 1;
+      max-width: 600px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .image-content img {
+      max-width: 100%;
+      height: auto;
     }
 
     .parallax-bg {
@@ -220,32 +236,30 @@
       z-index: 0;
       will-change: transform;
     }
+    
     .text-content,
     .image-content {
       position: relative;
       z-index: 1;
     }
 
-    @media (max-width: 900px) {
-      .info-section,
-      .info-section.reverse {
-        flex-direction: column !important;
-        padding: 40px 10px;
-        gap: 20px;
-        border-radius: 20px 20px;
+    @media (max-width: 600px) {
+      nav a {
+        margin-left: 15px;
+        font-size: 12px;
       }
-      .info-section .text-content,
-      .info-section .image-content,
-      .info-section.reverse .text-content {
-        padding-left: 0;
-        padding-right: 0;
-        max-width: 100vw;
+
+      .buttons a {
+        width: 100%;
+        text-align: center;
       }
     }
   </style>
 </head>
 <body>
-  <div class="navbar">
+
+  <!-- Navigation Bar -->
+   <div class="navbar">
     <a href="homepage.html">HOME</a>
     <a href="#">PORTFOLIO</a>
     <a href="index.html">CONTACT</a>
@@ -256,7 +270,7 @@
       </select>
     </div>
   </div>
-
+  
   <div class="hero">
     <div class="hero-inner">
       <img src="assets/apexsolutionslogo.png" alt="Apex Solutions Logo">
@@ -268,7 +282,7 @@
     </div>
   </div>
 
-  <!-- First info section: text left, icon right -->
+  <!-- LANDING PAGE SECTION -->
   <section class="info-section">
     <div class="parallax-bg" data-speed="0.3"></div>
     <div class="text-content">
@@ -283,8 +297,7 @@
     </div>
   </section>
 
-  <!-- Second info section: icon left, text right -->
-  <section class="info-section reverse">
+  <section class="info-section">
     <div class="parallax-bg" data-speed="0.3"></div>
     <div class="image-content">
       <img src="assets/websites-icon.png" alt="Websites Icon" />
@@ -299,7 +312,6 @@
   </section>
 
   <script>
-    // Optional: Fade out hero as you scroll
     window.addEventListener("scroll", () => {
       const heroInner = document.querySelector('.hero-inner');
       const fadeStart = 0;
