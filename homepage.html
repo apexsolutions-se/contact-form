@@ -92,14 +92,10 @@
       pointer-events: none; /* So it doesn't block scrolling or clicks */
     }
 
-
-
-
     .hero-inner.fade-out {
       opacity: 0;
       transform: translateY(-50px);
     }
-
 
     .hero img {
       max-width: 360px;
@@ -156,7 +152,7 @@
      .info-section {
       position: relative;
       overflow: hidden;
-      min-height: 80vh;
+      min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -238,6 +234,11 @@
       z-index: 1;
     }
 
+    html {
+    scroll-behavior: smooth;
+  }
+
+
 
     @media (max-width: 600px) {
       nav a {
@@ -252,10 +253,10 @@
     }
   </style>
 </head>
-<body>
+  <body>
 
   <!-- Navigation Bar -->
-   <div class="navbar">
+  <div class="navbar">
     <a href="homepage.html">HOME</a>
     <a href="#">PORTFOLIO</a>
     <a href="index.html">CONTACT</a>
@@ -266,73 +267,82 @@
       </select>
     </div>
   </div>
-  
-
 
   <div class="hero">
-  <div class="hero-inner">
-    <img src="assets/apexsolutionslogo.png" alt="Apex Solutions Logo">
-    <h1>POWERFUL WEBSITES. REAL RESULTS.</h1>
-    <div class="buttons">
-      <a href="index.html" class="btn-contact">CONTACT US</a>
-      <a href="#" class="btn-learn">LEARN MORE</a>
+    <div class="hero-inner">
+      <img src="assets/apexsolutionslogo.png" alt="Apex Solutions Logo">
+      <h1>POWERFUL WEBSITES. REAL RESULTS.</h1>
+      <div class="buttons">
+        <a href="index.html" class="btn-contact">CONTACT US</a>
+        <a href="#" class="btn-learn">LEARN MORE</a>
+      </div>
     </div>
   </div>
-</div>
 
   <!-- LANDING PAGE SECTION -->
-<section class="info-section">
-  <div class="parallax-bg" data-speed="0.3"></div> <!-- This is the moving background -->
-  
-  <div class="text-content">
-    <h2>LANDING PAGES THAT TURN VISITORS INTO ACTION-TAKERS</h2>
-    <p>
-      Every landing page we build is crafted with a clear objective: to guide users toward a specific action—whether it’s a purchase, a sign-up, or a conversation. Our team combines clean visuals with strategic copy and UX best practices to help you meet your campaign goals efficiently and with impact.
-    </p>
-    <a href="#" class="btn-quote">GET A QUOTE</a>
-  </div>
-  <div class="image-content">
-    <img src="assets/landingpage-icon.png" alt="Landing Page Icon" />
-  </div>
-</section>
+  <section id="section1" class="info-section">
+    <div class="parallax-bg" data-speed="0.3"></div>
+    <div class="text-content">
+      <h2>LANDING PAGES THAT TURN VISITORS INTO ACTION-TAKERS</h2>
+      <p>
+        Every landing page we build is crafted with a clear objective: to guide users toward a specific action—whether it’s a purchase, a sign-up, or a conversation. Our team combines clean visuals with strategic copy and UX best practices to help you meet your campaign goals efficiently and with impact.
+      </p>
+      <a href="#" class="btn-quote">GET A QUOTE</a>
+    </div>
+    <div class="image-content">
+      <img src="assets/landingpage-icon.png" alt="Landing Page Icon" />
+    </div>
+  </section>
 
-  <section class="info-section">
-  <div class="parallax-bg" data-speed="0.3"></div> <!-- Background for parallax -->
+  <section id="section2" class="info-section">
+    <div class="parallax-bg" data-speed="0.3"></div>
+    <div class="image-content">
+      <img src="assets/websites-icon.png" alt="Websites Icon" />
+    </div>
+    <div class="text-content">
+      <h2>WEBSITES BUILT FOR IMPACT AND LONGEVITY</h2>
+      <p>
+        A strong online presence starts with a well-built website. At Apex Solutions, we create responsive, scalable, and user-centered websites designed to represent your brand, engage your audience, and support your long-term growth. Whether you're building a company from scratch or evolving an established brand, we tailor each site to fit your goals, industry, and style.
+      </p>
+      <a href="#" class="btn-quote">GET IN TOUCH</a>
+    </div>
+  </section>
 
-  <div class="image-content">
-    <img src="assets/websites-icon.png" alt="Websites Icon" />
-  </div>
+  <script>
+    window.addEventListener("scroll", () => {
+      const heroInner = document.querySelector('.hero-inner');
+      const fadeStart = 0;
+      const fadeEnd = window.innerHeight / 1.5;
+      const scrollY = window.scrollY;
 
-  <div class="text-content">
-    <h2>WEBSITES BUILT FOR IMPACT AND LONGEVITY</h2>
-    <p>
-      A strong online presence starts with a well-built website. At Apex Solutions, we create responsive, scalable, and user-centered websites designed to represent your brand, engage your audience, and support your long-term growth. Whether you're building a company from scratch or evolving an established brand, we tailor each site to fit your goals, industry, and style.
-    </p>
-    <a href="#" class="btn-quote">GET IN TOUCH</a>
-  </div>
-</section>
+      if (scrollY <= fadeEnd) {
+        const opacity = 1 - scrollY / fadeEnd;
+        heroInner.style.opacity = opacity;
+      } else {
+        heroInner.style.opacity = 0;
+      }
+    });
 
+    // Scroll takeover effect
+    const sections = document.querySelectorAll('.info-section');
+    let scrollTimeout = null;
+    let current = 0;
 
+    window.addEventListener('wheel', (event) => {
+      if (scrollTimeout) return;
+      scrollTimeout = setTimeout(() => {
+        scrollTimeout = null;
 
-<script>
-  window.addEventListener("scroll", () => {
-    const heroInner = document.querySelector('.hero-inner');
-    const fadeStart = 0;
-    const fadeEnd = window.innerHeight / 1.5;
-    const scrollY = window.scrollY;
-
-    if (scrollY <= fadeEnd) {
-      const opacity = 1 - scrollY / fadeEnd;
-      heroInner.style.opacity = opacity;
-    } else {
-      heroInner.style.opacity = 0;
-    }
-  });
-</script>
-
-
-
-
+        const direction = event.deltaY > 0 ? 1 : -1;
+        current = Math.max(0, Math.min(current + direction, sections.length - 1));
+        window.scrollTo({
+          top: sections[current].offsetTop,
+          behavior: 'smooth'
+        });
+      }, 300);
+    });
+  </script>
 
 </body>
+
 </html>
