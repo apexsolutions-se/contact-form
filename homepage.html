@@ -257,14 +257,15 @@
     .offer-card {
       background: rgba(38, 86, 143, 0.45);
       border-radius: 24px;
-      padding: 32px 32px;
+      padding: 20px 24px;       /* Less padding top/bottom */
       display: flex;
       align-items: flex-start;
-      gap: 24px;
-      min-height: 210px;
+      gap: 16px;
+      min-height: unset;        /* Remove or comment out min-height! */
       box-sizing: border-box;
       box-shadow: 0 6px 32px 0 rgba(30,40,90,0.10);
     }
+
     
     .offer-icon {
       width: 56px;
