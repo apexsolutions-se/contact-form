@@ -242,48 +242,58 @@
       margin-top: 40px;        /* Or adjust this value as needed */
     }
 
-.offer-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  margin-top: 24px;
-  max-width: 1100px;   /* or 900px, adjust to taste */
-  margin-left: auto;
-  margin-right: auto;
-}
-.offer-card {
-  background: rgba(38, 86, 143, 0.45);
-  border-radius: 24px;
-  padding: 20px 24px;
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  box-sizing: border-box;
-  box-shadow: 0 6px 32px 0 rgba(30,40,90,0.10);
-  z-index: 5;
-}
-.offer-icon {
-  width: 44px;
-  height: 44px;
-  flex-shrink: 0;
-  margin-right: 10px;
-}
-.offer-card h3 {
-  font-family: 'Lato', sans-serif;
-  font-size: 1.3rem;
-  margin: 0 0 12px 0;
-  font-weight: bold;
+    .offer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 24px;
+      max-width: 1100px;   /* or 900px, adjust to taste */
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .offer-card {
+      background: rgba(38, 86, 143, 0.45);
+      border-radius: 24px;
+      padding: 20px 24px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      box-sizing: border-box;
+      box-shadow: 0 6px 32px 0 rgba(30,40,90,0.10);
+      z-index: 5;
+    }
+    .offer-icon {
+      width: 44px;
+      height: 44px;
+      flex-shrink: 0;
+      margin-right: 10px;
+    }
+    .offer-card h3 {
+      font-family: 'Lato', sans-serif;
+      font-size: 1.3rem;
+      margin: 0 0 12px 0;
+      font-weight: bold;
+      color: #fff;
+    }
+    .offer-card p {
+      font-size: 1rem;
+      margin: 0;
+      color: #fff;
+    }
+    @media (max-width: 900px) {
+      .offer-grid { grid-template-columns: 1fr; }
+      .offer-card { padding: 16px 10px; }
+      .offer-icon { width: 32px; height: 32px; }
+    }
+
+    .offer-section-title {
+  text-align: center;
+  font-family: 'mokoto', sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 32px;
+  margin-top: 0;
+  letter-spacing: 0.04em;
   color: #fff;
-}
-.offer-card p {
-  font-size: 1rem;
-  margin: 0;
-  color: #fff;
-}
-@media (max-width: 900px) {
-  .offer-grid { grid-template-columns: 1fr; }
-  .offer-card { padding: 16px 10px; }
-  .offer-icon { width: 32px; height: 32px; }
 }
 
 
