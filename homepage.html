@@ -351,7 +351,7 @@
   margin-bottom: 36px;
   line-height: 1.14;
   letter-spacing: 0.02em;
-  filter: drop-shadow(0 0 15px #fff8);
+  filter: drop-shadow(0 0 24px #fff8);
    z-index: 5;
   /* Glowing effect */
 }
@@ -440,6 +440,20 @@
   100% { transform: translateY(0);}
 }
 
+    .cta-glow-text {
+  color: #fff;
+  font-size: 3.4rem;
+  font-weight: 700;
+  text-align: center;
+  /* Reduce blur radius and opacity for a softer glow: */
+  text-shadow:
+    0 0 10px #fff,         /* small, sharp white */
+    0 0 30px #43caff55;    /* faint blue glow, less alpha */
+  margin-bottom: 36px;
+  line-height: 1.14;
+  letter-spacing: 0.02em;
+  filter: none; /* Remove drop-shadow if too bright */
+}
 
 
     @media (max-width: 600px) {
