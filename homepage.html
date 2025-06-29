@@ -317,14 +317,13 @@
   justify-content: center;
 }
 
-    .cta-section .parallax-bg {
-      background: url('assets/cta-background.png') no-repeat center center;
-      background-size: cover;
-    }
     
   /*CTA SECTION*/
 
 .cta-section {
+  background: url('assets/cta-background.png') center center / cover no-repeat;
+  position: relative;  /* ensure child content stacks properly */
+  z-index: 1;
   position: relative;
   min-height: 100vh;
   display: flex;
