@@ -423,6 +423,51 @@
   }
 }
 
+    /* ------------- CTA ASSET ANIMATIONS ------------- */
+
+/* master float loop */
+@keyframes floatY {
+  0%,100% { transform: translateY(0); }
+  50%     { transform: translateY(-12px); }
+}
+
+/* Assets float continuously */
+.cta-asset {
+  animation-name: floatY;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  /* each asset gets its own speed in seconds below */
+}
+
+/* Individual speeds (staggered for variety) */
+.asset1  { animation-duration: 4.5s; }
+.asset2  { animation-duration: 6s;   }
+.asset3  { animation-duration: 5.2s; }
+.asset4  { animation-duration: 7s;   }
+.asset5  { animation-duration: 5.8s; }
+.asset6  { animation-duration: 6.3s; }
+.asset7  { animation-duration: 4.8s; }
+.asset8  { animation-duration: 6.8s; }
+.asset9  { animation-duration: 5s;   }
+.asset10 { animation-duration: 7.2s; }
+.asset11 { animation-duration: 5.6s; }
+.asset12 { animation-duration: 4.9s; }
+.asset13 { animation-duration: 6.1s; }
+.asset14 { animation-duration: 5.4s; }
+
+/* Hover pop / bounce */
+.cta-asset:hover {
+  z-index: 9;
+  animation-play-state: paused;            /* pause float while hovering */
+  transform: translateY(-4px) scale(1.08); /* quick pop */
+  transition: transform 0.18s cubic-bezier(.36,1.3,.44,1);
+}
+
+    @media (max-width:600px){
+  @keyframes floatY { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+}
+
+
     @media (max-width: 600px) {
       nav a {
         margin-left: 15px;
@@ -597,6 +642,17 @@
     } else {
       heroInner.style.opacity = 0;
     }
+  });
+</script>
+
+  <!-- just before </body> -->
+<script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.2/dist/vanilla-tilt.min.js"></script>
+<script>
+  VanillaTilt.init(document.querySelectorAll('.tiltable'), {
+    max: 8,            // tilt angle
+    speed: 400,
+    scale: 1.05,
+    glare: false       // set true for shiny glare
   });
 </script>
 
