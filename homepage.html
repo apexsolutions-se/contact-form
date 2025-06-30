@@ -586,17 +586,18 @@
 <body>
 
   <!-- Navigation Bar -->
-<div class="navbar">
-  <button class="hamburger" id="hamburger-btn" aria-label="Open menu">
-    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-  </button>
-  <div class="mobile-menu" id="mobile-menu">
-    <button class="close-btn" id="close-btn" aria-label="Close menu">&times;</button>
-    <a href="homepage.html"><b>HOME</b></a>
+   <div class="navbar">
+    <a href="homepage.html">HOME</a>
     <a href="#">PORTFOLIO</a>
     <a href="index.html">CONTACT</a>
+    <div class="language-switcher">
+      <select id="language-select" onchange="setLanguage(this.value)">
+        <option value="en">English</option>
+        <option value="sv">Svenska</option>
+      </select>
+    </div>
   </div>
-</div>
+  
 
 
   
