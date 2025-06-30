@@ -469,14 +469,13 @@
   @keyframes floatY { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
 }
 
-    /* Chrome, Edge, Safari, Opera */
-body::-webkit-scrollbar {
-  display: none;
+body {
+  scrollbar-width: none;         /* Firefox */
 }
 
-/* Firefox */
-body {
-  scrollbar-width: none;
+body::-webkit-scrollbar {
+  width: 0px;                    /* Chrome, Safari, Edge, Opera */
+  background: transparent;
 }
 
 
