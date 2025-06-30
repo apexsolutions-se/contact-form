@@ -655,6 +655,101 @@
   });
 </script>
 
+  <!-- SVENSKA -->
+
+   <script>
+const translations = {
+  en: {
+    // HERO
+    hero_title: "POWERFUL WEBSITES. REAL RESULTS.",
+    contact_btn: "CONTACT US",
+    learn_btn: "LEARN MORE",
+    // LANDING
+    landing_title: "LANDING PAGES THAT TURN VISITORS INTO ACTION-TAKERS",
+    landing_text: "Every landing page we build is crafted with a clear objective: to guide users toward a specific action—whether it’s a purchase, a sign-up, or a conversation. Our team combines clean visuals with strategic copy and UX best practices to help you meet your campaign goals efficiently and with impact.",
+    get_quote_btn: "GET A QUOTE",
+    // WEBSITES
+    websites_title: "WEBSITES BUILT FOR IMPACT AND LONGEVITY",
+    websites_text: "A strong online presence starts with a well-built website. At Apex Solutions, we create responsive, scalable, and user-centered websites designed to represent your brand, engage your audience, and support your long-term growth. Whether you're building a company from scratch or evolving an established brand, we tailor each site to fit your goals, industry, and style.",
+    get_in_touch_btn: "GET IN TOUCH",
+    // ABOUT
+    about_title: "A CREATIVE TECH STUDIO FOR THE NEXT GENERATION OF BRANDS",
+    about_text1: "Apex Solutions is a future-forward digital agency specializing in smart, scalable design and technology solutions for businesses ready to grow. We partner with entrepreneurs, creators, and companies to build sleek, high-performing websites, landing pages, and digital systems that convert and endure.",
+    about_text2: "We don’t just design—we architect experiences. Every visual, every button, every scroll is designed with purpose, blending modern aesthetics with data-driven functionality. Whether you're launching a new product, growing your personal brand, or giving your business a digital facelift, Apex delivers solutions built to last.",
+    get_started_btn: "GET STARTED",
+    // OFFER SECTION
+    offer_section_title: "WHAT WE OFFER",
+    web_design_title: "WEB DESIGN",
+    web_design_text: "Custom-built websites and landing pages designed for clarity, performance, and conversion. Whether you’re running ads, building a personal brand, or launching a product, we create scalable digital experiences tailored to your goals.",
+    copywriting_title: "COPYWRITING",
+    copywriting_text: "Words that work. We craft messaging that aligns with your brand voice, captures attention, and drives action—headlines, web content, product copy, and more.",
+    seo_title: "SEO",
+    seo_text: "Built-in visibility from the start. Our websites are structured and optimized to meet current SEO standards, helping your brand get discovered and rank better across search engines.",
+    support_title: "Ongoing Support & Strategy",
+    support_text: "Beyond launch, we help you stay sharp. From regular updates to strategic enhancements, our monthly plans ensure your site stays fresh, fast, and aligned with your evolving goals.",
+    // CTA
+    cta_title: "It’s Time to Build Your<br> Vision Into Reality",
+    cta_btn: "LET’S GET STARTED"
+  },
+  sv: {
+    // HERO
+    hero_title: "KRAFTFULLA WEBBPLATSER. RIKTIGA RESULTAT.",
+    contact_btn: "KONTAKTA OSS",
+    learn_btn: "LÄS MER",
+    // LANDING
+    landing_title: "LANDNINGSSIDOR SOM FÖRVANDLAR BESÖKARE TILL HANDLANDE KUNDER",
+    landing_text: "Varje landningssida vi bygger är utformad med ett tydligt mål: att leda användare mot en specifik handling – oavsett om det är ett köp, en registrering eller en konversation. Vårt team kombinerar rena visuella element med strategisk copy och UX-bästa praxis för att hjälpa dig att nå dina kampanjmål effektivt och med genomslag.",
+    get_quote_btn: "FÅ EN OFFERT",
+    // WEBSITES
+    websites_title: "WEBBPLATSER FÖR EFFEKT OCH LÅNGSIKTIGHET",
+    websites_text: "En stark online-närvaro börjar med en välbyggd webbplats. På Apex Solutions skapar vi responsiva, skalbara och användarcentrerade webbplatser som representerar ditt varumärke, engagerar din publik och stödjer din långsiktiga tillväxt. Oavsett om du bygger ett företag från grunden eller utvecklar ett etablerat varumärke anpassar vi varje sida efter dina mål, din bransch och din stil.",
+    get_in_touch_btn: "KONTAKTA OSS",
+    // ABOUT
+    about_title: "EN KREATIV TECHSTUDIO FÖR NÄSTA GENERATIONENS VARUMÄRKEN",
+    about_text1: "Apex Solutions är en framtidsinriktad digital byrå som är specialiserad på smart, skalbar design och teknologilösningar för företag som vill växa. Vi samarbetar med entreprenörer, kreatörer och företag för att bygga snygga, högpresterande webbplatser, landningssidor och digitala system som konverterar och håller.",
+    about_text2: "Vi designar inte bara – vi arkitekterar upplevelser. Varje visuell detalj, varje knapp, varje scroll är utformad med syfte och förenar modern estetik med datadriven funktionalitet. Oavsett om du lanserar en ny produkt, bygger ditt personliga varumärke eller ger ditt företag ett digitalt lyft levererar Apex lösningar som håller.",
+    get_started_btn: "BÖRJA NU",
+    // OFFER SECTION
+    offer_section_title: "VAD VI ERBJUDER",
+    web_design_title: "WEBBDESIGN",
+    web_design_text: "Skräddarsydda webbplatser och landningssidor för tydlighet, prestanda och konvertering. Oavsett om du kör annonser, bygger ett personligt varumärke eller lanserar en produkt skapar vi skalbara digitala upplevelser som passar dina mål.",
+    copywriting_title: "COPYWRITING",
+    copywriting_text: "Texter som fungerar. Vi skriver budskap som matchar ditt varumärkes röst, fångar uppmärksamhet och driver handling – rubriker, webbinnehåll, produkttexter och mer.",
+    seo_title: "SEO",
+    seo_text: "Inbyggd synlighet från början. Våra webbplatser är strukturerade och optimerade enligt dagens SEO-standarder så att ditt varumärke blir synligt och rankar bättre i sökmotorer.",
+    support_title: "Löpande Support & Strategi",
+    support_text: "Efter lansering hjälper vi dig att hålla dig vass. Med regelbundna uppdateringar och strategiska förbättringar ser våra månadsplaner till att din sida är snabb, uppdaterad och i linje med dina utvecklingsmål.",
+    // CTA
+    cta_title: "Dags att Förverkliga<br> Din Vision",
+    cta_btn: "BÖRJA NU"
+  }
+};
+
+// Translation logic stays the same
+function setLanguage(lang) {
+  for (const key in translations[lang]) {
+    const el = document.getElementById(key);
+    if (el) {
+      // For <h2> with line breaks, use innerHTML instead of textContent
+      if (key === 'cta_title') {
+        el.innerHTML = translations[lang][key];
+      } else {
+        el.textContent = translations[lang][key];
+      }
+    }
+  }
+  localStorage.setItem('selectedLang', lang);
+}
+
+window.addEventListener('DOMContentLoaded', function() {
+  const savedLang = localStorage.getItem('selectedLang') || 'en';
+  document.getElementById('language-select').value = savedLang;
+  setLanguage(savedLang);
+});
+</script>
+
+
+
 
 </body>
 </html>
