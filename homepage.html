@@ -515,33 +515,40 @@
   transform: translateY(-10px) rotate(-45deg);
 }
 
-/* Mobile menu style */
+/* Dropdown Panel Mobile Menu */
 .mobile-menu {
   display: none;
   flex-direction: column;
-  position: fixed;
-  top: 0; left: 0;
-  width: 100vw;
-  height: 100vh;
+  position: absolute;     /* <--- changed from fixed to absolute */
+  top: 0; left: 0; right: 0;
+  width: 100%;
   background: #8ec8fd;
   z-index: 110;
-  padding: 32px 24px 0 24px;
-  animation: menuIn 0.35s;
+  padding: 32px 24px 32px 24px;
+  box-shadow: 0 8px 36px #0002;
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;
+  animation: menuIn 0.32s;
 }
-@keyframes menuIn { from{opacity:0;transform:translateY(-40px);} to{opacity:1;transform:translateY(0);} }
+
+@keyframes menuIn {
+  from { opacity: 0; transform: translateY(-30px);}
+  to   { opacity: 1; transform: translateY(0);}
+}
+
+.mobile-menu.open { display: flex; }
 
 .mobile-menu a {
   color: #182439;
   text-decoration: none;
   font-family: 'Inter', sans-serif;
-  font-size: 2.5rem;
-  margin: 32px 0 0 0;
+  font-size: 2.1rem;
+  margin: 20px 0 0 0;
   display: block;
   letter-spacing: 0.01em;
   font-weight: 400;
 }
-
-.mobile-menu a:first-of-type { margin-top: 40px; }
+.mobile-menu a:first-of-type { margin-top: 14px; }
 .mobile-menu a:active, .mobile-menu a:focus, .mobile-menu a:hover {
   text-decoration: underline;
   color: #183254;
@@ -551,9 +558,9 @@
   background: none;
   border: none;
   color: #80cdff;
-  font-size: 3.2rem;
+  font-size: 2.5rem;
   position: absolute;
-  top: 28px; right: 30px;
+  top: 22px; right: 24px;
   cursor: pointer;
   z-index: 120;
   line-height: 1;
@@ -562,7 +569,7 @@
 .close-btn:hover { color: #222; }
 
 @media (max-width: 900px) {
-  .navbar a:not(.language-switcher),
+  .navbar a:not(.logo),
   .navbar .language-switcher {
     display: none;
   }
@@ -571,41 +578,27 @@
     align-items: center;
     justify-content: center;
   }
-  .mobile-menu {
-    display: flex;
-  }
 }
 
-    
+
   </style>
 </head>
 <body>
 
   <!-- Navigation Bar -->
 <div class="navbar">
-  <a href="homepage.html">HOME</a>
-  <a href="#">PORTFOLIO</a>
-  <a href="index.html">CONTACT</a>
-  <div class="language-switcher">
-    <select id="language-select" onchange="setLanguage(this.value)">
-      <option value="en">English</option>
-      <option value="sv">Svenska</option>
-    </select>
-  </div>
-  <!-- Hamburger Button -->
+  <a href="homepage.html" class="logo"><img src="assets/logo.png" /></a>
   <button class="hamburger" id="hamburger-btn" aria-label="Open menu">
-    <span class="bar"></span>
-    <span class="bar"></span>
-    <span class="bar"></span>
+    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
   </button>
-  <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobile-menu">
     <button class="close-btn" id="close-btn" aria-label="Close menu">&times;</button>
-    <a href="homepage.html"><strong>HOME</strong></a>
+    <a href="homepage.html"><b>HOME</b></a>
     <a href="#">PORTFOLIO</a>
     <a href="index.html">CONTACT</a>
   </div>
 </div>
+
 
   
 
@@ -860,29 +853,26 @@ window.addEventListener('DOMContentLoaded', function() {
   
 <script>
   const hamburgerBtn = document.getElementById('hamburger-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const closeBtn = document.getElementById('close-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+const closeBtn = document.getElementById('close-btn');
 
-  hamburgerBtn.addEventListener('click', function() {
-    hamburgerBtn.classList.toggle('active');
-    mobileMenu.style.display = 'flex';
-    document.body.style.overflow = 'hidden'; // prevent scroll when menu open
-  });
+hamburgerBtn.addEventListener('click', function() {
+  mobileMenu.classList.add('open');
+  document.body.style.overflow = 'hidden'; // Prevent background scroll
+});
 
-  closeBtn.addEventListener('click', function() {
-    hamburgerBtn.classList.remove('active');
-    mobileMenu.style.display = 'none';
-    document.body.style.overflow = ''; // re-enable scroll
-  });
+closeBtn.addEventListener('click', function() {
+  mobileMenu.classList.remove('open');
+  document.body.style.overflow = '';
+});
 
-  // Optional: close menu on any menu link click
-  mobileMenu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', function() {
-      hamburgerBtn.classList.remove('active');
-      mobileMenu.style.display = 'none';
-      document.body.style.overflow = '';
-    });
+// Optional: close menu when a link is clicked
+mobileMenu.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', function() {
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
   });
+});
 </script>
 
 
