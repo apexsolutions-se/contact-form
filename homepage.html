@@ -519,9 +519,9 @@
   opacity: 0;
   pointer-events: none;
   transition: transform 0.38s cubic-bezier(.8,.3,.3,1.1), opacity 0.2s;
-  min-height: 250px;           /* <--- Set min-height for 3 links + close btn */
+  min-height: 180px;           /* <--- Set min-height for 3 links + close btn */
   height: auto;
-  max-height: 260px;           /* <--- Optional, controls the drop area. */
+  max-height: 200px;           /* <--- Optional, controls the drop area */
   overflow: visible;            /* <--- Hide overflow (prevents scrolling) */
 }
 .mobile-menu.open {
@@ -572,6 +572,7 @@
   text-decoration: none;
 }
 
+
 .close-btn {
   background: none;
   border: none;
@@ -588,45 +589,343 @@
 
 .close-btn:hover { color: #183254; }
 
+.mobile-menu .language-switcher {
+  padding: 20px 24px 8px 10px;   /* top right bottom left */
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: flex-start; /* or center */
+}
+
+
+
 @media (min-width: 901px) {
   .mobile-menu, .menu-overlay, .hamburger { display: none !important; }
 }
 
+/*landing section mobile*/
+@media (max-width: 900px) {
+  .landing-section {
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center;
+    text-align: center;
+    padding: 48px 8px 32px 8px !important;
+    gap: 0;
+  }
 
+  .landing-section .image-content {
+    order: 1; /* Show icon on top */
+    margin-bottom: 0px;
+    margin-top: 0;
+    max-width: 250px;   /* Or any size you prefer */
+    width: 100%;         /* Responsive scaling */
+    height: 40px;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .landing-section .text-content {
+    order: 2;
+    width: 100%;
+    padding: 0 0 80 0;
+    margin: 0;
+    max-width: 400px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .landing-section .btn-quote {
+    padding: 10px 24px;  /* Smaller width: top/bottom 10px, left/right 24px */
+    min-width: unset;    /* Remove any existing min-width */
+    width: auto;        
+  }
+}
+
+/*webite mobile*/
+/* website section mobile */
+@media (max-width: 900px) {
+  .website-section {
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center;
+    text-align: center;
+    padding: 48px 8px 32px 8px !important;
+    gap: 0;
+  }
+
+  .website-section .image-content {
+    order: 1;
+    margin-bottom: 0px;
+    margin-top: 0;
+    max-width: 250px;
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .website-section .text-content {
+    order: 2;
+    width: 100%;
+    padding: 0 0 80 0;
+    margin: 0;
+    max-width: 400px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .website-section .btn-quote {
+    padding: 10px 24px;
+    min-width: unset;
+    width: auto;
+  }
+}
+
+/* about section mobile */
+@media (max-width: 900px) {
+  .about-section {
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center;
+    text-align: center;
+    padding: 24px 8px 24px 8px !important;
+    gap: 0;
+  }
+
+  .about-section .image-content {
+    order: 1;
+    margin-bottom: 0px;
+    margin-top: 0;
+    max-width: 250px;
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .about-section .text-content {
+    order: 2;
+    width: 100%;
+    padding: 0 0 80 0;
+    margin: 0;
+    max-width: 400px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .about-section .btn-quote {
+    padding: 10px 24px;
+    min-width: unset;
+    width: auto;
+  }
+}
+
+@media (max-width: 900px) {
+  #what-we-offer {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  #what-we-offer .offer-section-container {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow-x: visible !important;
+    display: block !important;
+  }
+
+  #what-we-offer .offer-section-title {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    text-align: center !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    box-sizing: border-box;
+  }
+
+ #what-we-offer .offer-grid {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 18px !important;
+  overflow-x: auto !important;
+  overflow-y: visible !important;
+  width: 100vw !important;
+  max-width: unset !important;
+  min-width: unset !important;
+  scroll-snap-type: x mandatory;
+  padding: 0 0px 32px 0 !important;
+  box-sizing: border-box;
+}
+
+    #what-we-offer .offer-section-container,
+  #what-we-offer .offer-grid {
+    padding-left: 0 !important;
+    padding-right: 15px !important;
+    margin-left: 1px !important;
+    margin-right: 0 !important;
+  }
+
+  #what-we-offer .offer-grid::-webkit-scrollbar,
+  #what-we-offer .offer-section-container::-webkit-scrollbar {
+    display: none;
+  }
+
+#what-we-offer .offer-card {
+  flex: 0 0 90vw !important;
+  min-width: 90vw !important;
+  max-width: 100vw !important;
+  scroll-snap-align: center !important;
+  margin-right: 3vw !important;
+  margin-left: 3vw !important;
+}
+
+
+  #what-we-offer .offer-icon {
+    width: 36px !important;
+    height: 36px !important;
+    flex-shrink: 0;
+    margin-right: 10px;
+    margin-top: 4px;
+  }
+  #what-we-offer .offer-card > div {
+    flex: 1 1 0%;
+    min-width: 0;
+  }
+  #what-we-offer .offer-card h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+  }
+  #what-we-offer .offer-card p {
+    font-size: 0.98rem;
+    margin: 0;
+    color: #fff;
+  }
+
+  .offer-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin: 12px 0 12px 0;
+  }
+  .offer-pagination .dot {
+    width: 14px;
+    height: 14px;
+    background: #fff;
+    opacity: 0.5;
+    border-radius: 50%;
+    display: inline-block;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  .offer-pagination .dot.active {
+    opacity: 1;
+    background: #fff;
+    transform: scale(1.14);
+  }
+
+  /* Prevent horizontal overflow on the body */
+  body {
+    overflow-x: hidden !important;
+  }
+
+}
+  /* CTA mobile */
+@media (max-width: 600px) {
+  .cta-content {
+    padding: 32px 6px 36px 6px !important;
+    min-height: 340px !important;
+  }
+  .cta-glow-text {
+    font-size: 1.4rem !important;
+    margin-bottom: 20px !important;
+    line-height: 1.2 !important;
+    /* Softer glow */
+    text-shadow:
+      0 0 2px #fff,
+      0 0 10px #43caff66;
+  }
+  .cta-btn {
+    font-size: 1.1rem !important;
+    padding: 12px 16px !important;
+    border-radius: 18px !important;
+    margin-top: 18px !important;
+    margin-bottom: 10px !important;
+    width: 100% !important;
+    max-width: 320px !important;
+  }
+  .cta-assets img,
+  .cta-assets .cta-asset {
+    width: 20px !important;
+    min-width: 20px !important;
+    max-width: 24px !important;
+    opacity: 0.7 !important;
+  }
+  .cta-assets {
+    pointer-events: none;
+  }
+
+  /* Hide the nearest assets around the text/button */
+  .asset10, .asset11, .asset14 {
+    display: none !important;
+  }
+
+}
+
+@media (max-width: 600px) {
+  .text-content h2 {
+    font-size: 1rem !important;   /* Adjust to your preference */
+  }
+  .offer-section-title {
+    font-size: 1rem !important;    /* Adjust to your preference */
+  }
+  .cta-glow-text {
+    font-size: 2rem !important;    /* Adjust to your preference */
+  }
+}
 
   </style>
 </head>
 <body>
 
-  <!-- Navigation Bar -->
-   <div class="navbar">
-    <a href="homepage.html">HOME</a>
-    <a href="#">PORTFOLIO</a>
-    <a href="index.html">CONTACT</a>
-    <div class="language-switcher">
-      <select id="language-select" onchange="setLanguage(this.value)">
-        <option value="en">English</option>
-        <option value="sv">Svenska</option>
-      </select>
 
-        </div>
+<!-- Navigation Bar -->
+<div class="navbar">
+  <a href="homepage.html">HOME</a>
+  <a href="#">PORTFOLIO</a>
+  <a href="index.html">CONTACT</a>
+  <div class="language-switcher">
+    <select id="language-select" onchange="setLanguage(this.value)">
+      <option value="en">English</option>
+      <option value="sv">Svenska</option>
+    </select>
+  </div>
   <!-- Hamburger Button (mobile only) -->
   <button class="hamburger" id="hamburger-btn" aria-label="Open menu">
     <span class="bar"></span>
     <span class="bar"></span>
     <span class="bar"></span>
   </button>
-  <!-- Mobile Dropdown Menu -->
-  <div class="mobile-menu" id="mobile-menu">
-    <button class="close-btn" id="close-btn" aria-label="Close menu">&times;</button>
-    <a href="homepage.html">HOME</a>
-    <a href="#">PORTFOLIO</a>
-    <a href="index.html">CONTACT</a>
+</div>
+
+<!-- Mobile Dropdown Menu OUTSIDE .navbar! -->
+<div class="mobile-menu" id="mobile-menu">
+  <button class="close-btn" id="close-btn" aria-label="Close menu">&times;</button>
+  <a href="homepage.html">HOME</a>
+  <a href="#">PORTFOLIO</a>
+  <a href="index.html">CONTACT</a>
+
+   <div class="language-switcher">
+    <select id="language-select" onchange="setLanguage(this.value)">
+      <option value="en">English</option>
+      <option value="sv">Svenska</option>
+    </select>
   </div>
 </div>
-  
-
 <div class="menu-overlay" id="menu-overlay"></div>
+
   
 
 
@@ -642,51 +941,45 @@
 </div>
 
   <!-- LANDING PAGE SECTION -->
-<section class="info-section">
-
+<section class="info-section landing-section">
   <div class="text-content">
     <h2 id="landing_title">LANDING PAGES THAT TURN VISITORS INTO ACTION-TAKERS</h2>
     <p id="landing_text">
-      Every landing page we build is crafted with a clear objective: to guide users toward a specific action—whether it’s a purchase, a sign-up, or a conversation. Our team combines clean visuals with strategic copy and UX best practices to help you meet your campaign goals efficiently and with impact.
+      Every landing page we build is crafted with a clear objective: ...
     </p>
-    <a href="index.html" id="get_quote_btn" class="btn-quote">GET A QUOTE</a>
+    <a href="index.html" id="get_quote_btn" class="btn-quote">LEARN MORE</a>
   </div>
-  <div class="image-content icon-up"> <!-- Add icon-up here -->
+  <div class="image-content icon-up">
     <img src="assets/landingpage-icon.png" alt="Landing Page Icon" />
   </div>
 </section>
 
-  <section class="info-section">
 
-    <div class="image-content icon-up"> <!-- Add icon-up here -->
-     <img src="assets/websites-icon.png" alt="Websites Icon" />
+
+  <section class="info-section website-section">
+  <div class="image-content icon-up">
+    <img src="assets/websites-icon.png" alt="Websites Icon" />
   </div>
-
   <div class="text-content">
     <h2 id="websites_title">WEBSITES BUILT FOR IMPACT AND LONGEVITY</h2>
-    <p id="websites_text">
-      A strong online presence starts with a well-built website. At Apex Solutions, we create responsive, scalable, and user-centered websites designed to represent your brand, engage your audience, and support your long-term growth. Whether you're building a company from scratch or evolving an established brand, we tailor each site to fit your goals, industry, and style.
-    </p>
+    <p id="websites_text"> ... </p>
     <a href="index.html" id="get_in_touch_btn" class="btn-quote">GET IN TOUCH</a>
   </div>
 </section>
 
-  <section class="info-section">
 
+  <section class="info-section about-section">
   <div class="text-content">
     <h2 id="about_title">A CREATIVE TECH STUDIO FOR THE NEXT GENERATION OF BRANDS</h2>
-    <p id="about_text1">
-      Apex Solutions is a future-forward digital agency specializing in smart, scalable design and technology solutions for businesses ready to grow. We partner with entrepreneurs, creators, and companies to build sleek, high-performing websites, landing pages, and digital systems that convert and endure.
-    </p>
-    <p id="about_text2">
-      We don’t just design—we architect experiences. Every visual, every button, every scroll is designed with purpose, blending modern aesthetics with data-driven functionality. Whether you're launching a new product, growing your personal brand, or giving your business a digital facelift, Apex delivers solutions built to last.
-    </p>
+    <p id="about_text1"> ... </p>
+    <p id="about_text2"> ... </p>
     <a href="index.html" id="get_started_btn" class="btn-quote">GET STARTED</a>
   </div>
-    <div class="image-content icon-up"> <!-- Add icon-up here -->
-     <img src="assets/aboutus-icon.png" alt="About Us Icon" />
+  <div class="image-content icon-up">
+    <img src="assets/aboutus-icon.png" alt="About Us Icon" />
   </div>
 </section>
+
 
 
 <section class="info-section" id="what-we-offer">
@@ -727,7 +1020,16 @@
     </div>
   </div>
 </div>
+
+       <div class="offer-pagination" id="offer-pagination">
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+</div>
   </div>
+
+
     </section>
 
 <section class="info-section cta-section">
@@ -822,19 +1124,19 @@ const translations = {
   },
   sv: {
     // HERO
-    hero_title: "KRAFTFULLA WEBBPLATSER. RIKTIGA RESULTAT.",
+    hero_title: "ELEGANTA HEMSIDOR MED FOKUS PÅ KONVERTERING",
     contact_btn: "KONTAKTA OSS",
     learn_btn: "LÄS MER",
     // LANDING
-    landing_title: "LANDNINGSSIDOR SOM FÖRVANDLAR BESÖKARE TILL HANDLANDE KUNDER",
-    landing_text: "Varje landningssida vi bygger är utformad med ett tydligt mål: att leda användare mot en specifik handling – oavsett om det är ett köp, en registrering eller en konversation. Vårt team kombinerar rena visuella element med strategisk copy och UX-bästa praxis för att hjälpa dig att nå dina kampanjmål effektivt och med genomslag.",
+    landing_title: "LANDNINGSSIDOR SOM FÖRVANDLAR BESÖKARE TILL KUNDER",
+    landing_text: "Varje sida vi bygger har ett tydligt syfte: att guida besökaren mot en specifik handling – oavsett om det handlar om ett köp, en registrering eller att ta kontakt.Vi kombinerar ren design med tydliga texter och smart struktur för att hjälpa dig nå dina kampanjmål – enkelt, effektivt och med resultat.",
     get_quote_btn: "FÅ EN OFFERT",
     // WEBSITES
-    websites_title: "WEBBPLATSER FÖR EFFEKT OCH LÅNGSIKTIGHET",
+    websites_title: "HEMSIDAN – DIN DIGITALA MOTOR FÖR TILLVÄXT",
     websites_text: "En stark online-närvaro börjar med en välbyggd webbplats. På Apex Solutions skapar vi responsiva, skalbara och användarcentrerade webbplatser som representerar ditt varumärke, engagerar din publik och stödjer din långsiktiga tillväxt. Oavsett om du bygger ett företag från grunden eller utvecklar ett etablerat varumärke anpassar vi varje sida efter dina mål, din bransch och din stil.",
     get_in_touch_btn: "KONTAKTA OSS",
     // ABOUT
-    about_title: "EN KREATIV TECHSTUDIO FÖR NÄSTA GENERATIONENS VARUMÄRKEN",
+    about_title: "DESIGN OCH TEKNIK FÖR NÄSTA STEG I DIN TILLVÄXTRENSA",
     about_text1: "Apex Solutions är en framtidsinriktad digital byrå som är specialiserad på smart, skalbar design och teknologilösningar för företag som vill växa. Vi samarbetar med entreprenörer, kreatörer och företag för att bygga snygga, högpresterande webbplatser, landningssidor och digitala system som konverterar och håller.",
     about_text2: "Vi designar inte bara – vi arkitekterar upplevelser. Varje visuell detalj, varje knapp, varje scroll är utformad med syfte och förenar modern estetik med datadriven funktionalitet. Oavsett om du lanserar en ny produkt, bygger ditt personliga varumärke eller ger ditt företag ett digitalt lyft levererar Apex lösningar som håller.",
     get_started_btn: "BÖRJA NU",
@@ -919,6 +1221,43 @@ window.addEventListener('keydown', function(e) {
 });
 </script>
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Only run on mobile
+  if (window.innerWidth > 900) return;
+  const offerGrid = document.querySelector('#what-we-offer .offer-grid');
+  const dots = document.querySelectorAll('#offer-pagination .dot');
+  if (!offerGrid || dots.length === 0) return;
+
+  function setActiveDot(idx) {
+    dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+  }
+
+  function updateDot() {
+    const cardWidth = offerGrid.querySelector('.offer-card').offsetWidth;
+    const scrollLeft = offerGrid.scrollLeft;
+    const idx = Math.round(scrollLeft / cardWidth);
+    setActiveDot(idx);
+  }
+
+  // Listen for scroll
+  offerGrid.addEventListener('scroll', updateDot);
+
+  // Clicking a dot scrolls to the card
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+      const cardWidth = offerGrid.querySelector('.offer-card').offsetWidth;
+      offerGrid.scrollTo({
+        left: i * cardWidth,
+        behavior: 'smooth'
+      });
+    });
+  });
+
+  // Initialize
+  setActiveDot(0);
+});
+</script>
 
 
 </body>
