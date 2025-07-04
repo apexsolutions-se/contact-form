@@ -156,22 +156,176 @@
       }
 
 
+          /* MOBILE VIEW */
+/* Hide hamburger by default */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+  z-index: 120;
+  margin-left: 18px;
+  position: relative;
+  width: 40px;
+  height: 40px;
+}
+.hamburger .bar {
+  display: block;
+  width: 32px;
+  height: 4px;
+  background: #80cdff;
+  border-radius: 2px;
+  transition: 0.35s;
+}
+.hamburger.active .bar:nth-child(1) {
+  transform: translateY(10px) rotate(45deg);
+}
+.hamburger.active .bar:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active .bar:nth-child(3) {
+  transform: translateY(-10px) rotate(-45deg);
+}
+
+.mobile-menu {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 0; top: 0;
+  width: 100vw;
+  background: #a4d1fd;
+  color: #040F22;
+  z-index: 200;
+  padding: 0 0 36px 0;
+  border-radius: 0 0 28px 28px;
+  box-shadow: 0 4px 28px #2223a633;
+  transform: translateY(-110%);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.38s cubic-bezier(.8,.3,.3,1.1), opacity 0.2s;
+  min-height: 180px;           /* <--- Set min-height for 3 links + close btn */
+  height: auto;
+  max-height: 200px;           /* <--- Optional, controls the drop area */
+  overflow: visible;            /* <--- Hide overflow (prevents scrolling) */
+}
+.mobile-menu.open {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
+.menu-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  background: transparent;
+  z-index: 160;
+}
+
+/* Only show on mobile */
+@media (max-width: 900px) {
+  .navbar a:not(.language-switcher),
+  .navbar .language-switcher {
+    display: none;
+  }
+  .hamburger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* MENU CONTENT */
+.mobile-menu a {
+  color: #040F22;
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  margin: 28px 0 0 0;
+  display: block;
+  letter-spacing: 0.01em;
+  font-weight: 400;
+  padding-left: 2.1rem;
+}
+
+.mobile-menu a:first-of-type { margin-top: 36px; }
+.mobile-menu a:active,
+.mobile-menu a:focus,
+.mobile-menu a:hover {
+  text-decoration: none;
+}
+
+
+.close-btn {
+  background: none;
+  border: none;
+  color: #040F22;
+  font-size: 2.5rem;
+  position: absolute;
+  top: 24px; right: 28px;
+  cursor: pointer;
+  z-index: 120;
+  line-height: 1;
+  transition: color 0.2s;
+  padding: 0;
+}
+
+.close-btn:hover { color: #183254; }
+
+.mobile-menu .language-switcher {
+  padding: 20px 24px 8px 10px;   /* top right bottom left */
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: flex-start; /* or center */
+}
+
+
+
+@media (min-width: 901px) {
+  .mobile-menu, .menu-overlay, .hamburger { display: none !important; }
+}
+
   </style>
 </head>
 <body>
 
-  <!-- Navigation Bar -->
-  <div class="navbar">
-    <a href="homepage.html">HOME</a>
-    <a href="#">PORTFOLIO</a>
-    <a href="index.html">CONTACT</a>
-    <div class="language-switcher">
-      <select id="language-select" onchange="setLanguage(this.value)">
-        <option value="en">English</option>
-        <option value="sv">Svenska</option>
-      </select>
-    </div>
+<!-- Navigation Bar -->
+<div class="navbar">
+  <a href="homepage.html">HOME</a>
+  <a href="#">PORTFOLIO</a>
+  <a href="index.html">CONTACT</a>
+  <div class="language-switcher">
+    <select id="language-select" onchange="setLanguage(this.value)">
+      <option value="en">English</option>
+      <option value="sv">Svenska</option>
+    </select>
   </div>
+  <!-- Hamburger Button (mobile only) -->
+  <button class="hamburger" id="hamburger-btn" aria-label="Open menu">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+</div>
+
+<!-- Mobile Dropdown Menu OUTSIDE .navbar! -->
+<div class="mobile-menu" id="mobile-menu">
+  <button class="close-btn" id="close-btn" aria-label="Close menu">&times;</button>
+  <a href="homepage.html">HOME</a>
+  <a href="#">PORTFOLIO</a>
+  <a href="index.html">CONTACT</a>
+
+   <div class="language-switcher">
+    <select id="language-select" onchange="setLanguage(this.value)">
+      <option value="en">English</option>
+      <option value="sv">Svenska</option>
+    </select>
+  </div>
+</div>
+<div class="menu-overlay" id="menu-overlay"></div>
 
   <div class="container">
     <!-- Headline -->
