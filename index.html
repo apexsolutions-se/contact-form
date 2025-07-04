@@ -382,5 +382,46 @@
       document.querySelector("button[type='submit']").textContent = t.submit;
     }
   </script>
+
+  <script>
+const hamburgerBtn = document.getElementById('hamburger-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+const closeBtn = document.getElementById('close-btn');
+const overlay = document.getElementById('menu-overlay');
+
+// Open menu
+hamburgerBtn.addEventListener('click', function() {
+  mobileMenu.classList.add('open');
+  overlay.style.display = 'block';
+  hamburgerBtn.classList.add('active');
+  document.body.style.overflow = 'hidden'; // prevent scroll
+});
+
+// Close menu (X)
+closeBtn.addEventListener('click', function() {
+  mobileMenu.classList.remove('open');
+  overlay.style.display = 'none';
+  hamburgerBtn.classList.remove('active');
+  document.body.style.overflow = '';
+});
+
+// Close when clicking outside menu
+overlay.addEventListener('click', function() {
+  mobileMenu.classList.remove('open');
+  overlay.style.display = 'none';
+  hamburgerBtn.classList.remove('active');
+  document.body.style.overflow = '';
+});
+
+// Optional: ESC closes menu
+window.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    mobileMenu.classList.remove('open');
+    overlay.style.display = 'none';
+    hamburgerBtn.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+});
+</script>
 </body>
 </html>
