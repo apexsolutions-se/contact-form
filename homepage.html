@@ -160,12 +160,28 @@
       overflow: hidden;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
       padding: 80px 80px;
       gap: 40px;
       flex-wrap: wrap;
       border-radius: 50px 50px;
       z-index: 50;
+    }
+
+    .section-inner {
+      display: flex;
+      align-items: center;  /* vertically center text/img */
+      justify-content: center;
+      gap: 40px;
+      max-width: 1200px;  /* or whatever you like */
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .text-content,
+    .image-content {
+      flex: 1 1 0;
+      /* remove any vertical alignment styles here */
     }
     
     .text-content {
@@ -214,6 +230,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      margin-bottom: 200px;
     }
     
     .image-content img {
@@ -289,181 +306,182 @@
       .offer-icon { width: 32px; height: 32px; }
     }
 
-.offer-section-title {
-  text-align: center;
-  font-family: 'mokoto', sans-serif;
-  font-size: 25px;
-  margin-bottom: 22px;
-  margin-top: 0;
-  letter-spacing: 0.04em;
-  color: #fff;
-  z-index: 5;
-}
+    .offer-section-title {
+      text-align: center;
+      font-family: 'mokoto', sans-serif;
+      font-size: 25px;
+      margin-bottom: 22px;
+      margin-top: 0;
+      letter-spacing: 0.04em;
+      color: #fff;
+      z-index: 5;
+    }
 
     .offer-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  width: 100%;
-}
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      width: 100%;
+    }
 
     .offer-section-container {
-  max-width: 1150px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
+      max-width: 1150px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
 
     
   /*CTA SECTION*/
 
-.cta-section {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  background: url('assets/cta-background.png') center center / cover no-repeat;
-  z-index: 50;
-}
+    .cta-section {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: url('assets/cta-background.png') center center / cover no-repeat;
+      z-index: 50;
+    }
 
-.cta-content {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 60vh;
-  width: 100%;
-  padding: 80px 16px 60px 16px;
-}
+    .cta-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 60vh;
+      width: 100%;
+      padding: 80px 16px 60px 16px;
+    }
 
-  .cta-glow-text {
-    color: #fff;
-    font-size: 3.4rem;
-    font-weight: 700;
-    text-align: center;
-    text-shadow:
-      0 0 5px #fff,
-      0 0 20px #43caff55;
-    margin-bottom: 36px;
-    line-height: 1.14;
-    letter-spacing: 0.02em;
-  }
+    .cta-glow-text {
+      color: #fff;
+      font-size: 3.4rem;
+      font-weight: 700;
+      text-align: center;
+      text-shadow:
+        0 0 5px #fff,
+        0 0 20px #43caff55;
+      margin-bottom: 36px;
+      line-height: 1.14;
+      letter-spacing: 0.02em;
+    }
 
-.cta-btn {
-  display: inline-block;
-  background: #040F22;
-  color: #fff;
-  font-family: inherit;
-  font-size: 1.6rem;
-  font-weight: 500;
-  padding: 16px 38px;
-  border-radius: 20px;
-  box-shadow: 0 3px 14px #001a5544;
-  text-decoration: none;
-  transition: background 0.2s, box-shadow 0.2s, transform 0.12s;
-  margin-top: 18px;
-  margin-bottom: 10px;
-  text-align: center;
-   z-index: 5;
-}
-.cta-btn:hover, .cta-btn:focus {
-  background: #0b2460;
-  box-shadow: 0 6px 30px #0e3a8850;
-  transform: translateY(-2px) scale(1.04);
-}
+    .cta-btn {
+      display: inline-block;
+      background: #040F22;
+      color: #fff;
+      font-family: inherit;
+      font-size: 1.6rem;
+      font-weight: 500;
+      padding: 16px 38px;
+      border-radius: 20px;
+      box-shadow: 0 3px 14px #001a5544;
+      text-decoration: none;
+      transition: background 0.2s, box-shadow 0.2s, transform 0.12s;
+      margin-top: 18px;
+      margin-bottom: 10px;
+      text-align: center;
+      z-index: 5;
+    }
+    .cta-btn:hover, .cta-btn:focus {
+      background: #0b2460;
+      box-shadow: 0 6px 30px #0e3a8850;
+      transform: translateY(-2px) scale(1.04);
+    }
 
-.cta-assets {
-  pointer-events: none; /* prevent click overlap except for animation */
-  position: absolute;
-  left: 0; top: 0; width: 100%; height: 100%;
-  z-index: 5;
-}
+    .cta-assets {
+      pointer-events: none; /* prevent click overlap except for animation */
+      position: absolute;
+      left: 0; top: 0; width: 100%; height: 100%;
+      z-index: 5;
+    }
 
-.cta-asset {
-  position: absolute;
-  opacity: 0.9;
-  pointer-events: auto;
-  transition: transform 0.25s ease;
-}
+    .cta-asset {
+      position: absolute;
+      opacity: 0.9;
+      pointer-events: auto;
+      transition: transform 0.25s ease;
+    }
 
-/* Example custom sizes & positions for assets: (tweak as you like) */
-.asset1 { left: 5%; top: 12%; width: 80px;}
-.asset2 { left: 18%; top: 3%; width: 42px;}
-.asset3 { left: 32%; top: 15%; width: 58px;}
-.asset4 { left: 54%; top: 8%; width: 75px;}
-.asset5 { left: 77%; top: 6%; width: 54px;}
-.asset6 { left: 86%; top: 30%; width: 70px;}
-.asset7 { left: 9%; top: 62%; width: 90px;}
-.asset8 { left: 24%; top: 80%; width: 80px;}
-.asset9 { left: 48%; top: 90%; width: 58px;}
-.asset10 { left: 73%; top: 71%; width: 46px;}
-.asset11 { left: 92%; top: 69%; width: 90px;}
-.asset12 { left: 11%; top: 88%; width: 32px; }   /* bottom-left */
-.asset13 { left: 80%; top: 90%; width: 48px; }   /* bottom-right */
-.asset14 { left: 5%;  top: 40%; width: 38px; }   /* mid-left */
+    /* Example custom sizes & positions for assets: (tweak as you like) */
+    .asset1 { left: 5%; top: 12%; width: 80px;}
+    .asset2 { left: 18%; top: 3%; width: 42px;}
+    .asset3 { left: 32%; top: 15%; width: 58px;}
+    .asset4 { left: 54%; top: 8%; width: 75px;}
+    .asset5 { left: 77%; top: 6%; width: 54px;}
+    .asset6 { left: 86%; top: 30%; width: 70px;}
+    .asset7 { left: 9%; top: 62%; width: 90px;}
+    .asset8 { left: 24%; top: 80%; width: 80px;}
+    .asset9 { left: 48%; top: 90%; width: 58px;}
+    .asset10 { left: 73%; top: 71%; width: 46px;}
+    .asset11 { left: 92%; top: 69%; width: 90px;}
+    .asset12 { left: 11%; top: 88%; width: 32px; }   /* bottom-left */
+    .asset13 { left: 80%; top: 90%; width: 48px; }   /* bottom-right */
+    .asset14 { left: 5%;  top: 40%; width: 38px; }   /* mid-left */
 
 
 
-/* Responsive: shrink assets and text on mobile */
-@media (max-width: 600px) {
-  .cta-glow-text {
-    font-size: 2.1rem;
-    margin-bottom: 20px;
-  }
-  .cta-assets img {
-    width: 32px !important;
-  }
-  .cta-content {
-    padding: 40px 6px 36px 6px;
-    min-height: 340px;
-  }
-}
+    /* Responsive: shrink assets and text on mobile */
+    @media (max-width: 600px) {
+      .cta-glow-text {
+        font-size: 2.1rem;
+        margin-bottom: 20px;
+      }
+      .cta-assets img {
+        width: 32px !important;
+      }
+      .cta-content {
+        padding: 40px 6px 36px 6px;
+        min-height: 340px;
+      }
+    }
 
-    /* ------------- CTA ASSET ANIMATIONS ------------- */
+        /* ------------- CTA ASSET ANIMATIONS ------------- */
 
-/* master float loop */
-@keyframes floatY {
-  0%,100% { transform: translateY(0); }
-  50%     { transform: translateY(-12px); }
-}
+    /* master float loop */
+    @keyframes floatY {
+      0%,100% { transform: translateY(0); }
+      50%     { transform: translateY(-12px); }
+    }
 
-/* Assets float continuously */
-.cta-asset {
-  animation-name: floatY;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
-  /* each asset gets its own speed in seconds below */
-}
+    /* Assets float continuously */
+    .cta-asset {
+      animation-name: floatY;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+      /* each asset gets its own speed in seconds below */
+    }
 
-/* Individual speeds (staggered for variety) */
-.asset1  { animation-duration: 4.5s; }
-.asset2  { animation-duration: 6s;   }
-.asset3  { animation-duration: 5.2s; }
-.asset4  { animation-duration: 7s;   }
-.asset5  { animation-duration: 5.8s; }
-.asset6  { animation-duration: 6.3s; }
-.asset7  { animation-duration: 4.8s; }
-.asset8  { animation-duration: 6.8s; }
-.asset9  { animation-duration: 5s;   }
-.asset10 { animation-duration: 7.2s; }
-.asset11 { animation-duration: 5.6s; }
-.asset12 { animation-duration: 4.9s; }
-.asset13 { animation-duration: 6.1s; }
-.asset14 { animation-duration: 5.4s; }
+    /* Individual speeds (staggered for variety) */
+    .asset1  { animation-duration: 4.5s; }
+    .asset2  { animation-duration: 6s;   }
+    .asset3  { animation-duration: 5.2s; }
+    .asset4  { animation-duration: 7s;   }
+    .asset5  { animation-duration: 5.8s; }
+    .asset6  { animation-duration: 6.3s; }
+    .asset7  { animation-duration: 4.8s; }
+    .asset8  { animation-duration: 6.8s; }
+    .asset9  { animation-duration: 5s;   }
+    .asset10 { animation-duration: 7.2s; }
+    .asset11 { animation-duration: 5.6s; }
+    .asset12 { animation-duration: 4.9s; }
+    .asset13 { animation-duration: 6.1s; }
+    .asset14 { animation-duration: 5.4s; }
 
-/* Hover pop / bounce */
-.cta-asset:hover {
-  z-index: 9;
-  animation-play-state: paused;            /* pause float while hovering */
-  transform: translateY(-4px) scale(1.08); /* quick pop */
-  transition: transform 0.18s cubic-bezier(.36,1.3,.44,1);
-}
+    /* Hover pop / bounce */
+    .cta-asset:hover {
+      z-index: 9;
+      animation-play-state: paused;            /* pause float while hovering */
+      transform: translateY(-4px) scale(1.08); /* quick pop */
+      transition: transform 0.18s cubic-bezier(.36,1.3,.44,1);
+    }
 
     @media (max-width:600px){
   @keyframes floatY { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
@@ -574,20 +592,25 @@
 
 
 .close-btn {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+    width: 40px;    /* Force fixed width */
+  height: 40px;   /* Force fixed height */
+  min-width: 0;   /* Prevent stretching */
+  min-height: 0;
   background: none;
   border: none;
-  color: #040F22;
+  color: #040f22;
   font-size: 2.5rem;
-  position: absolute;
-  top: 24px; right: 28px;
   cursor: pointer;
-  z-index: 120;
+  z-index: 300;
   line-height: 1;
   transition: color 0.2s;
   padding: 0;
 }
 
-.close-btn:hover { color: #183254; }
+.close-btn:hover { color: #1c5cb0; }
 
 .mobile-menu .language-switcher {
   padding: 20px 24px 8px 10px;   /* top right bottom left */
@@ -670,7 +693,7 @@
     margin: 0;
     max-width: 400px;
     align-items: center;
-    text-align: center;
+    text-align: center; 
   }
 
   .website-section .btn-quote {
@@ -868,7 +891,7 @@
   }
 
   /* Hide the nearest assets around the text/button */
-  .asset10, .asset11, .asset14 {
+  .asset10, .asset11, .asset14, .asset8 {
     display: none !important;
   }
 
@@ -883,6 +906,29 @@
   }
   .cta-glow-text {
     font-size: 2rem !important;    /* Adjust to your preference */
+  }
+}
+
+@media (max-width: 900px) {
+  .section-inner {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+  .image-content {
+    order: 1;
+    margin-bottom: 0;
+    margin-top: 0;
+    max-width: 250px;
+    width: 100%;
+    display: block;
+  }
+  .text-content {
+    order: 2;
+    width: 100%;
+    max-width: 400px;
+    padding: 0;
+    text-align: center;
   }
 }
 
@@ -942,6 +988,7 @@
 
   <!-- LANDING PAGE SECTION -->
 <section class="info-section landing-section">
+    <div class="section-inner">
   <div class="text-content">
     <h2 id="landing_title">LANDING PAGES THAT TURN VISITORS INTO ACTION-TAKERS</h2>
     <p id="landing_text">
@@ -952,11 +999,13 @@
   <div class="image-content icon-up">
     <img src="assets/landingpage-icon.png" alt="Landing Page Icon" />
   </div>
+    </div>
 </section>
 
 
 
   <section class="info-section website-section">
+    <div class="section-inner">
   <div class="image-content icon-up">
     <img src="assets/websites-icon.png" alt="Websites Icon" />
   </div>
@@ -965,10 +1014,12 @@
     <p id="websites_text"> ... </p>
     <a href="index.html" id="get_in_touch_btn" class="btn-quote">GET IN TOUCH</a>
   </div>
+    </div>
 </section>
 
 
   <section class="info-section about-section">
+    <div class="section-inner">
   <div class="text-content">
     <h2 id="about_title">A CREATIVE TECH STUDIO FOR THE NEXT GENERATION OF BRANDS</h2>
     <p id="about_text1"> ... </p>
@@ -977,6 +1028,7 @@
   </div>
   <div class="image-content icon-up">
     <img src="assets/aboutus-icon.png" alt="About Us Icon" />
+  </div>
   </div>
 </section>
 
@@ -1033,6 +1085,7 @@
     </section>
 
 <section class="info-section cta-section">
+  <div class="section-inner">
 
   <div class="cta-content">
     <h2 id="cta_title" class="cta-glow-text">It’s Time to Build Your<br> Vision Into Reality</h2>
@@ -1054,6 +1107,7 @@
       <img src="assets/light13.png" class="cta-asset asset13" alt="" />
       <img src="assets/light14.png" class="cta-asset asset14" alt="" />
     </div>
+  </div>
   </div>
 </section>
 
