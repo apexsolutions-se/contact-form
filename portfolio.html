@@ -212,6 +212,25 @@ body, html {
   scrollbar-color: rgba(0, 174, 255, 0.2) transparent;
 }
 
+.construction-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.construction-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.8rem;
+  color: white;
+  margin-top: 5px;
+  letter-spacing: 0.04em;
+}
+
+
   </style>
 </head>
 <body>
@@ -237,7 +256,7 @@ body, html {
 <!-- Mobile Dropdown Menu OUTSIDE .navbar! -->
 <div class="mobile-menu" id="mobile-menu">
   <a href="homepage.html">HOME</a>
-  <a href="#">PORTFOLIO</a>
+  <a href="portfolio.html">PORTFOLIO</a>
   <a href="index.html">CONTACT</a>
 
    <div class="language-switcher">
@@ -249,11 +268,23 @@ body, html {
 </div>
 <div class="menu-overlay" id="menu-overlay"></div>
   <!-- Main Content Placeholder -->
-  <div style="padding-top:120px; text-align:center;">
-    <h1 style="color:white;">Our Portfolio</h1>
-    <p style="color:white;">Showcase your best work here.</p>
-    <!-- Add your portfolio grid/content below -->
-  </div>
+<!-- Lottie Player Script -->
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+<div class="construction-wrapper">
+  <lottie-player 
+    src="https://assets3.lottiefiles.com/packages/lf20_ydo1amjm.json"  
+    background="transparent"  
+    speed="1"  
+    style="width: 460px; height: 460px;"  
+    loop  
+    autoplay>
+  </lottie-player>
+  <h1 class="construction-text">This page is under construction</h1>
+</div>
+
+
+
 
 <script>
 const hamburgerBtn = document.getElementById('hamburger-btn');
