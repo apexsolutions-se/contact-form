@@ -296,6 +296,50 @@ body, html {
   letter-spacing: 0.04em;
 }
 
+    @media (max-width: 600px) {
+  .construction-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 0 20px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+
+  lottie-player {
+    width: 280px !important;
+    height: 280px !important;
+  }
+
+  .construction-text {
+    font-size: 1.2rem !important;
+    margin-top: 12px;
+  }
+
+  .construction-subtext {
+    font-size: 0.9rem !important;
+    margin-top: 6px;
+  }
+
+  .notify-form {
+    flex-direction: column;
+    gap: 12px;
+     align-items: center;
+  }
+
+  .notify-form input[type="email"] {
+    min-width: unset;
+    width: 100%;
+  }
+
+  .notify-form button {
+    width: 100%;
+  
+  }
+}
 
   </style>
 </head>
