@@ -230,6 +230,58 @@ body, html {
   letter-spacing: 0.04em;
 }
 
+.construction-subtext {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: #ffffff;
+  opacity: 0.75;
+  margin-top: 8px;
+  letter-spacing: 0.02em;
+}
+
+
+.notify-form {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.notify-form input[type="email"] {
+  padding: 12px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: 'Inter', sans-serif;
+  min-width: 250px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid #01D1FC;
+}
+
+.notify-form input[type="email"]::placeholder {
+  color: #ccc;
+}
+
+.notify-form button {
+  padding: 12px 20px;
+  background-color: #01D1FC;
+  color: black;
+  font-family: 'Inter', sans-serif;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.notify-form button:hover {
+  background-color: #00aacc;
+}
+
+
 
   </style>
 </head>
@@ -256,7 +308,7 @@ body, html {
 <!-- Mobile Dropdown Menu OUTSIDE .navbar! -->
 <div class="mobile-menu" id="mobile-menu">
   <a href="homepage.html">HOME</a>
-  <a href="portfolio.html">PORTFOLIO</a>
+  <a href="#">PORTFOLIO</a>
   <a href="index.html">CONTACT</a>
 
    <div class="language-switcher">
@@ -280,8 +332,17 @@ body, html {
     loop  
     autoplay>
   </lottie-player>
-  <h1 class="construction-text">This page is under construction</h1>
+  <h1 class="construction-text">This page is under construction.</h1>
+  <p class="construction-subtext">Great things are coming.</p>
+
+
+  <form action="https://formspree.io/f/mjkrdkjg" method="POST" class="notify-form">
+  <input type="email" name="email" placeholder="Enter your email" required />
+  <button type="submit">Notify Me</button>
+</form>
 </div>
+
+
 
 
 
