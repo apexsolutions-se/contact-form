@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
-  <link rel="shortcut icon" type="image/png" href="favicon.png">
   <style>
     body {
       margin: 0;
@@ -162,7 +161,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 80px 80px;
+      padding: 24px 16px;
       gap: 40px;
       flex-wrap: wrap;
       border-radius: 50px 50px;
@@ -270,7 +269,7 @@
       max-width: 1100px;   /* or 900px, adjust to taste */
       margin-left: auto;
       margin-right: auto;
-      margin-bottom: 50px;
+      margin-bottom: 90px;
     }
     .offer-card {
       background: rgba(38, 86, 143, 0.45);
@@ -721,126 +720,83 @@
   }
 }
 
-@media (max-width: 900px) {
-  #what-we-offer {
-    padding: 0 !important;
-    margin: 0 !important;
-  }
 
-  #what-we-offer .offer-section-container {
-    width: 100vw !important;
-    max-width: 100vw !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    overflow-x: visible !important;
-    display: block !important;
-  }
-
-  #what-we-offer .offer-section-title {
-    width: 100vw !important;
-    max-width: 100vw !important;
-    text-align: center !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    box-sizing: border-box;
-  }
-
- #what-we-offer .offer-grid {
-  display: flex !important;
-  flex-direction: row !important;
-  gap: 18px !important;
-  overflow-x: auto !important;
-  overflow-y: visible !important;
-  width: 100vw !important;
-  max-width: unset !important;
-  min-width: unset !important;
-  scroll-snap-type: x mandatory;
-  padding: 0 0px 32px 0 !important;
-  box-sizing: border-box;
+.offer-section-title {
+  font-family: 'mokoto', sans-serif;
+  font-size: 36px;
+  font-weight: bold;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 20px;
+  padding-top: 20px;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
 }
 
-    #what-we-offer .offer-section-container,
-  #what-we-offer .offer-grid {
-    padding-left: 0 !important;
-    padding-right: 15px !important;
-    margin-left: 1px !important;
-    margin-right: 0 !important;
-  }
+/* Hide mobile version by default */
+.figma-offer-mobile {
+  display: none;
+}
 
-  #what-we-offer .offer-grid::-webkit-scrollbar,
-  #what-we-offer .offer-section-container::-webkit-scrollbar {
+/* Figma card styling (mobile only) */
+@media (max-width: 900px) {
+  .offer-section-container {
     display: none;
   }
 
-#what-we-offer .offer-card {
-  flex: 0 0 90vw !important;
-  min-width: 90vw !important;
-  max-width: 100vw !important;
-  scroll-snap-align: center !important;
-  margin-right: 3vw !important;
-  margin-left: 3vw !important;
+.offer-section-title {
+  margin-top: 30px;
 }
 
+  .figma-offer-mobile {
+    display: block;
+    padding-bottom: 60px;
+  }
 
-  #what-we-offer .offer-icon {
-    width: 36px !important;
-    height: 36px !important;
-    flex-shrink: 0;
-    margin-right: 10px;
-    margin-top: 4px;
+  .figma-offer-card {
+    position: relative;
+    margin-bottom: 32px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 16px 16px 16px 80px;
+    margin-bottom: 10px;
   }
-  #what-we-offer .offer-card > div {
-    flex: 1 1 0%;
-    min-width: 0;
+
+  .figma-card-bg {
+    display: none; /* Optional: remove if unnecessary */
   }
-  #what-we-offer .offer-card h3 {
-    margin: 0 0 10px 0;
-    font-size: 1.1rem;
-    font-weight: 600;
+
+  .figma-icon {
+    position: absolute;
+    top: 16px;
+    left: 20px;
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+  }
+
+  .figma-title {
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .figma-title.long-title {
+    font-size: 14px;
+  }
+
+  .figma-text {
+    font-size: 14px;
+    line-height: 1.6;
     color: #fff;
   }
-  #what-we-offer .offer-card p {
-    font-size: 0.98rem;
-    margin: 0;
-    color: #fff;
-  }
-
-  .offer-pagination {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 16px;
-    margin: 12px 0 12px 0;
-  }
-  .offer-pagination .dot {
-    width: 14px;
-    height: 14px;
-    background: #fff;
-    opacity: 0.5;
-    border-radius: 50%;
-    display: inline-block;
-    transition: opacity 0.2s, transform 0.2s;
-  }
-  .offer-pagination .dot.active {
-    opacity: 1;
-    background: #fff;
-    transform: scale(1.14);
-  }
-
-  /* Prevent horizontal overflow on the body */
-  body {
-    overflow-x: hidden !important;
-  }
-
-  body.no-scroll {
-  position: fixed;
-  width: 100vw;            /* <--- fixes layout under scrollbar */
-  overflow-y: scroll;
 }
 
-}
+
+
+
   /* CTA mobile */
 @media (max-width: 600px) {
   .cta-content {
@@ -958,9 +914,9 @@ body, html {
 
 <!-- Navigation Bar -->
 <div class="navbar">
-  <a href="/">HOME</a>
+  <a href="index.html">HOME</a>
   <a href="/portfolio">PORTFOLIO</a>
-  <a href="contactform.html">CONTACT</a>
+  <a href="/contact">CONTACT</a>
   <div class="language-switcher">
     <select id="language-select" onchange="setLanguage(this.value)">
       <option value="en">English</option>
@@ -977,9 +933,9 @@ body, html {
 
 <!-- Mobile Dropdown Menu OUTSIDE .navbar! -->
 <div class="mobile-menu" id="mobile-menu">
-  <a href="/">HOME</a>
+  <a href="homepage.html">HOME</a>
   <a href="/portfolio">PORTFOLIO</a>
-  <a href="contactform.html">CONTACT</a>
+  <a href="/contact">CONTACT</a>
 
    <div class="language-switcher">
     <select id="language-select" onchange="setLanguage(this.value)">
@@ -998,7 +954,7 @@ body, html {
     <img src="assets/apexsolutionslogo.png" alt="Apex Solutions Logo">
     <h1 id="hero_title">POWERFUL WEBSITES. REAL RESULTS.</h1>
     <div class="buttons">
-      <a href="contactform.html" id="contact_btn" class="btn-contact">CONTACT US</a>
+      <a href="index.html" id="contact_btn" class="btn-contact">CONTACT US</a>
       <a href="#what-we-offer" id="learn_btn" class="btn-learn">LEARN MORE</a>
     </div>
   </div>
@@ -1012,7 +968,7 @@ body, html {
     <p id="landing_text">
       Every landing page we build is crafted with a clear objective: ...
     </p>
-    <a href="contactform.html" id="get_quote_btn" class="btn-quote">LEARN MORE</a>
+    <a href="index.html" id="get_quote_btn" class="btn-quote">LEARN MORE</a>
   </div>
   <div class="image-content icon-up">
     <img src="assets/landingpage-icon.png" alt="Landing Page Icon" />
@@ -1030,7 +986,7 @@ body, html {
   <div class="text-content">
     <h2 id="websites_title">WEBSITES BUILT FOR IMPACT AND LONGEVITY</h2>
     <p id="websites_text"> ... </p>
-    <a href="contactform.html" id="get_in_touch_btn" class="btn-quote">GET IN TOUCH</a>
+    <a href="index.html" id="get_in_touch_btn" class="btn-quote">GET IN TOUCH</a>
   </div>
     </div>
 </section>
@@ -1042,7 +998,7 @@ body, html {
     <h2 id="about_title">A CREATIVE TECH STUDIO FOR THE NEXT GENERATION OF BRANDS</h2>
     <p id="about_text1"> ... </p>
     <p id="about_text2"> ... </p>
-    <a href="contactform.html" id="get_started_btn" class="btn-quote">GET STARTED</a>
+    <a href="index.html" id="get_started_btn" class="btn-quote">GET STARTED</a>
   </div>
   <div class="image-content icon-up">
     <img src="assets/aboutus-icon.png" alt="About Us Icon" />
@@ -1052,61 +1008,82 @@ body, html {
 
 
 
-<section class="info-section" id="what-we-offer">
-  
+<section id="what-we-offer" class="info-section">
+  <h1 class="offer-section-title">WHAT WE OFFER</h1>
+
+  <!-- ✅ DESKTOP VERSION (Grid Layout) -->
   <div class="offer-section-container">
-    <h2 id="offer_section_title" class="offer-section-title">WHAT WE OFFER</h2>
     <div class="offer-grid">
-  <!-- Card 1 -->
-  <div class="offer-card">
-    <img src="assets/webdesign-icon.png" alt="Web Design Icon" class="offer-icon" />
-    <div>
-      <h3 id="web_design_title">WEB DESIGN</h3>
-      <p id="web_design_text">Custom-built websites and landing pages designed for clarity, performance, and conversion. Whether you’re running ads, building a personal brand, or launching a product, we create scalable digital experiences tailored to your goals.</p>
+      <div class="offer-card">
+        <img src="assets/webdesign-icon.png" alt="Web Design Icon" class="offer-icon" />
+        <div class="offer-content">
+          <h3>Web Design</h3>
+          <p>Custom-built websites and landing pages designed for clarity, performance, and conversion. Whether you’re running ads, building a personal brand, or launching a product, we create scalable digital experiences tailored to your goals.</p>
+        </div>
+      </div>
+      <div class="offer-card">
+        <img src="assets/copywriting-icon.png" alt="Copywriting Icon" class="offer-icon" />
+        <div class="offer-content">
+          <h3>Copywriting</h3>
+          <p>Words that work. We craft messaging that aligns with your brand voice, captures attention, and drives action—headlines, web content, product copy, and more.</p>
+        </div>
+      </div>
+      <div class="offer-card">
+        <img src="assets/seo-icon.png" alt="SEO Icon" class="offer-icon" />
+        <div class="offer-content">
+          <h3>SEO</h3>
+          <p>Built-in visibility from the start. Our websites are structured and optimized to meet current SEO standards, helping your brand get discovered and rank better across search engines.</p>
+        </div>
+      </div>
+      <div class="offer-card">
+        <img src="assets/support-icon.png" alt="Support Icon" class="offer-icon" />
+        <div class="offer-content">
+          <h3>Ongoing Support & Strategy</h3>
+          <p>Beyond launch, we help you stay sharp. From regular updates to strategic enhancements, our monthly plans ensure your site stays fresh, fast, and aligned with your evolving goals.</p>
+        </div>
+      </div>
     </div>
-  </div>
-  <!-- Card 2 -->
-  <div class="offer-card">
-    <img src="assets/copywriting-icon.png" alt="Copywriting Icon" class="offer-icon" />
-    <div>
-      <h3 id="copywriting_title">COPYWRITING</h3>
-      <p id="copywriting_text">Words that work. We craft messaging that aligns with your brand voice, captures attention, and drives action—headlines, web content, product copy, and more.</p>
-    </div>
-  </div>
-  <!-- Card 3 -->
-  <div class="offer-card">
-    <img src="assets/seo-icon.png" alt="SEO Icon" class="offer-icon" />
-    <div>
-      <h3 id="seo_title">SEO</h3>
-      <p id="seo_text">Built-in visibility from the start. Our websites are structured and optimized to meet current SEO standards, helping your brand get discovered and rank better across search engines.</p>
-    </div>
-  </div>
-  <!-- Card 4 -->
-  <div class="offer-card">
-    <img src="assets/support-icon.png" alt="Ongoing Support Icon" class="offer-icon" />
-    <div>
-      <h3 id="support_title">Ongoing Support & Strategy</h3>
-      <p id="support_text">Beyond launch, we help you stay sharp. From regular updates to strategic enhancements, our monthly plans ensure your site stays fresh, fast, and aligned with your evolving goals.</p>
-    </div>
-  </div>
-</div>
-
-       <div class="offer-pagination" id="offer-pagination">
-  <span class="dot"></span>
-  <span class="dot"></span>
-  <span class="dot"></span>
-  <span class="dot"></span>
-</div>
   </div>
 
-    </section>
+  <!-- ✅ MOBILE VERSION (Figma layout) -->
+  <div class="figma-offer-mobile">
+    <div class="figma-offer-card">
+      <div class="figma-card-bg"></div>
+      <img class="figma-icon" src="assets/webdesign-icon.png" alt="Web Design Icon">
+      <b class="figma-title">WEB DESIGN</b>
+      <div class="figma-text">Custom-built websites and landing pages designed for clarity, performance, and conversion. Whether you’re running ads, building a personal brand, or launching a product, we create scalable digital experiences tailored to your goals.</div>
+    </div>
+
+    <div class="figma-offer-card">
+      <div class="figma-card-bg"></div>
+      <img class="figma-icon" src="assets/copywriting-icon.png" alt="Copywriting Icon">
+      <b class="figma-title">COPYWRITING</b>
+      <div class="figma-text">Words that work. We craft messaging that aligns with your brand voice, captures attention, and drives action—headlines, web content, product copy, and more.</div>
+    </div>
+
+    <div class="figma-offer-card">
+      <div class="figma-card-bg"></div>
+      <img class="figma-icon" src="assets/seo-icon.png" alt="SEO Icon">
+      <b class="figma-title">SEO</b>
+      <div class="figma-text">Built-in visibility from the start. Our websites are structured and optimized to meet current SEO standards, helping your brand get discovered and rank better across search engines.</div>
+    </div>
+
+    <div class="figma-offer-card">
+      <div class="figma-card-bg"></div>
+      <img class="figma-icon" src="assets/support-icon.png" alt="Support Icon">
+      <b class="figma-title long-title">ONGOING SUPPORT & STRATEGY</b>
+      <div class="figma-text">Beyond launch, we help you stay sharp. From regular updates to strategic enhancements, our monthly plans ensure your site stays fresh, fast, and aligned with your evolving goals.</div>
+    </div>
+  </div>
+</section>
+
 
 <section class="info-section cta-section">
   <div class="section-inner">
 
   <div class="cta-content">
     <h2 id="cta_title" class="cta-glow-text">It’s Time to Build Your<br> Vision Into Reality</h2>
-    <a href="contactform.html" id="cta_btn" class="cta-btn">LET’S GET STARTED</a>
+    <a href="index.html" id="cta_btn" class="cta-btn">LET’S GET STARTED</a>
     <!-- Floating assets/lights -->
     <div class="cta-assets">
       <img src="assets/light1.png" class="cta-asset asset1" alt="" />
@@ -1200,7 +1177,7 @@ const translations = {
     learn_btn: "LÄS MER",
     // LANDING
     landing_title: "LANDNINGSSIDOR SOM FÖRVANDLAR BESÖKARE TILL KUNDER",
-    landing_text: "Varje sida vi bygger har ett tydligt syfte: att guida besökaren mot en specifik handling – oavsett om det handlar om ett köp, en registrering eller att ta kontakt. Vi kombinerar ren design med tydliga texter och smart struktur för att hjälpa dig nå dina kampanjmål – enkelt, effektivt och med resultat.",
+    landing_text: "Varje sida vi bygger har ett tydligt syfte: att guida besökaren mot en specifik handling – oavsett om det handlar om ett köp, en registrering eller att ta kontakt.Vi kombinerar ren design med tydliga texter och smart struktur för att hjälpa dig nå dina kampanjmål – enkelt, effektivt och med resultat.",
     get_quote_btn: "FÅ EN OFFERT",
     // WEBSITES
     websites_title: "HEMSIDAN – DIN DIGITALA MOTOR FÖR TILLVÄXT",
