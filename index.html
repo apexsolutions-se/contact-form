@@ -1218,25 +1218,56 @@ const translations = {
 
 // Translation logic stays the same
 function setLanguage(lang) {
-  for (const key in translations[lang]) {
+  const t = translations[lang];
+
+  /* ---------- 1. Elements that still have IDs ---------- */
+  Object.keys(t).forEach(key => {
     const el = document.getElementById(key);
     if (el) {
-      // For <h2> with line breaks, use innerHTML instead of textContent
+      // cta_title contains a <br>, so keep the markup
       if (key === 'cta_title') {
-        el.innerHTML = translations[lang][key];
+        el.innerHTML = t[key];
       } else {
-        el.textContent = translations[lang][key];
+        el.textContent = t[key];
       }
     }
-  }
+  });
+
+  /* ---------- 2. “WHAT WE OFFER” heading ---------- */
+  document
+    .querySelectorAll('.offer-section-title')
+    .forEach(el => (el.textContent = t.offer_section_title));
+
+  /* ---------- 3. Card content (desktop + mobile) ---------- */
+  const offerKeys = [
+    ['web_design_title',    'web_design_text'],
+    ['copywriting_title',   'copywriting_text'],
+    ['seo_title',           'seo_text'],
+    ['support_title',       'support_text']
+  ];
+
+  // Desktop grid (.offer-card)
+  document
+    .querySelectorAll('.offer-grid .offer-card')
+    .forEach((card, i) => {
+      const [titleKey, textKey] = offerKeys[i];
+      card.querySelector('h3').textContent = t[titleKey];
+      card.querySelector('p').textContent  = t[textKey];
+    });
+
+  // Mobile stack (.figma-offer-card)
+  document
+    .querySelectorAll('.figma-offer-card')
+    .forEach((card, i) => {
+      const [titleKey, textKey] = offerKeys[i];
+      card.querySelector('.figma-title').textContent = t[titleKey];
+      card.querySelector('.figma-text').textContent  = t[textKey];
+    });
+
+  /* ---------- 4. Persist user choice ---------- */
   localStorage.setItem('selectedLang', lang);
 }
 
-window.addEventListener('DOMContentLoaded', function() {
-  const savedLang = localStorage.getItem('selectedLang') || 'en';
-  document.getElementById('language-select').value = savedLang;
-  setLanguage(savedLang);
-});
 </script>
 
 
