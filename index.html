@@ -1271,6 +1271,24 @@ function setLanguage(lang) {
 </script>
 
 
+<script>
+/* … your translations object and setLanguage() stay unchanged … */
+
+function applySavedLanguage() {
+  const saved = localStorage.getItem('selectedLang') || 'en';
+  setLanguage(saved);
+}
+
+/* First pass – as soon as the DOM is parsed */
+document.addEventListener('DOMContentLoaded', applySavedLanguage);
+
+/* Second pass – after ALL assets, fonts, 3-D images, and other JS finish loading */
+window.addEventListener('load', applySavedLanguage);
+</script>
+
+
+  
+
   
 <script>
 const hamburgerBtn = document.getElementById('hamburger-btn');
