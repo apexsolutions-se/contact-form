@@ -1188,36 +1188,28 @@ const translations = {
     about_text1: "Apex Solutions är en framtidsinriktad digital byrå som är specialiserad på smart, skalbar design och teknologilösningar för företag som vill växa. Vi samarbetar med entreprenörer, kreatörer och företag för att bygga snygga, högpresterande webbplatser, landningssidor och digitala system som konverterar och håller.",
     about_text2: "Vi designar inte bara – vi arkitekterar upplevelser. Varje visuell detalj, varje knapp, varje scroll är utformad med syfte och förenar modern estetik med datadriven funktionalitet. Oavsett om du lanserar en ny produkt, bygger ditt personliga varumärke eller ger ditt företag ett digitalt lyft levererar Apex lösningar som håller.",
     get_started_btn: "BÖRJA NU",
-    // OFFER SECTION
- // OFFER SECTION
-offer_section_title: "VAD VI ERBJUDER",
 
-// Desktop
-web_design_title: "WEBBDESIGN",
-web_design_text: "Skräddarsydda webbplatser och landningssidor för tydlighet, prestanda och konvertering. Oavsett om du kör annonser, bygger ett personligt varumärke eller lanserar en produkt skapar vi skalbara digitala upplevelser som passar dina mål.",
+     // OFFER SECTION
+    offer_section_title: "VAD VI ERBJUDER",
+    // Desktop
+    web_design_title: "WEBBDESIGN",
+    web_design_text: "Skräddarsydda webbplatser och landningssidor för tydlighet, prestanda och konvertering. Oavsett om du kör annonser, bygger ett personligt varumärke eller lanserar en produkt skapar vi skalbara digitala upplevelser som passar dina mål.",
+    copywriting_title: "COPYWRITING",
+    copywriting_text: "Texter som fungerar. Vi skriver budskap som matchar ditt varumärkes röst, fångar uppmärksamhet och driver handling – rubriker, webbinnehåll, produkttexter och mer.",
+    seo_title: "SEO",
+    seo_text: "Inbyggd synlighet från början. Våra webbplatser är strukturerade och optimerade enligt dagens SEO-standarder så att ditt varumärke blir synligt och rankar bättre i sökmotorer.",
+    support_title: "LÖPANDE SUPPORT & STRATEGI",
+    support_text: "Efter lansering hjälper vi dig att hålla dig vass. Med regelbundna uppdateringar och strategiska förbättringar ser våra månadsplaner till att din sida är snabb, uppdaterad och i linje med dina utvecklingsmål.",
 
-copywriting_title: "COPYWRITING",
-copywriting_text: "Texter som fungerar. Vi skriver budskap som matchar ditt varumärkes röst, fångar uppmärksamhet och driver handling – rubriker, webbinnehåll, produkttexter och mer.",
-
-seo_title: "SEO",
-seo_text: "Inbyggd synlighet från början. Våra webbplatser är strukturerade och optimerade enligt dagens SEO-standarder så att ditt varumärke blir synligt och rankar bättre i sökmotorer.",
-
-support_title: "LÖPANDE SUPPORT & STRATEGI",
-support_text: "Efter lansering hjälper vi dig att hålla dig vass. Med regelbundna uppdateringar och strategiska förbättringar ser våra månadsplaner till att din sida är snabb, uppdaterad och i linje med dina utvecklingsmål.",
-
-// Mobile (Figma cards)
-figma_web_design_title: "WEBBDESIGN",
-figma_web_design_text: "Skräddarsydda webbplatser och landningssidor för tydlighet, prestanda och konvertering. Oavsett om du kör annonser, bygger ett personligt varumärke eller lanserar en produkt skapar vi skalbara digitala upplevelser som passar dina mål.",
-
-figma_copywriting_title: "COPYWRITING",
-figma_copywriting_text: "Texter som fungerar. Vi skriver budskap som matchar ditt varumärkes röst, fångar uppmärksamhet och driver handling – rubriker, webbinnehåll, produkttexter och mer.",
-
-figma_seo_title: "SEO",
-figma_seo_text: "Inbyggd synlighet från början. Våra webbplatser är strukturerade och optimerade enligt dagens SEO-standarder så att ditt varumärke blir synligt och rankar bättre i sökmotorer.",
-
-figma_support_title: "LÖPANDE SUPPORT & STRATEGI",
-figma_support_text: "Efter lansering hjälper vi dig att hålla dig vass. Med regelbundna uppdateringar och strategiska förbättringar ser våra månadsplaner till att din sida är snabb, uppdaterad och i linje med dina utvecklingsmål.",
-
+    // Mobile (Figma cards)
+    figma_web_design_title: "WEBBDESIGN",
+    figma_web_design_text: "Skräddarsydda webbplatser och landningssidor för tydlighet, prestanda och konvertering. Oavsett om du kör annonser, bygger ett personligt varumärke eller lanserar en produkt skapar vi skalbara digitala upplevelser som passar dina mål.",
+    figma_copywriting_title: "COPYWRITING",
+    figma_copywriting_text: "Texter som fungerar. Vi skriver budskap som matchar ditt varumärkes röst, fångar uppmärksamhet och driver handling – rubriker, webbinnehåll, produkttexter och mer.",
+    figma_seo_title: "SEO",
+    figma_seo_text: "Inbyggd synlighet från början. Våra webbplatser är strukturerade och optimerade enligt dagens SEO-standarder så att ditt varumärke blir synligt och rankar bättre i sökmotorer.",
+    figma_support_title: "LÖPANDE SUPPORT & STRATEGI",
+    figma_support_text: "Efter lansering hjälper vi dig att hålla dig vass. Med regelbundna uppdateringar och strategiska förbättringar ser våra månadsplaner till att din sida är snabb, uppdaterad och i linje med dina utvecklingsmål.",
     // CTA
     cta_title: "Dags att Förverkliga<br> Din Vision",
     cta_btn: "BÖRJA NU"
@@ -1246,69 +1238,6 @@ window.addEventListener('DOMContentLoaded', function() {
   setLanguage(savedLang);
 });
 </script>
-
-
-
-
-<script>
-const translations = { /* … your existing object … */ };
-
-/* ---------- JUST REPLACE YOUR OLD setLanguage WITH THIS ---------- */
-function setLanguage(lang) {
-  const t = translations[lang];
-
-  /* 1️⃣  Update every element that already has an id  */
-  for (const key in t) {
-    const el = document.getElementById(key);
-    if (el) {
-      if (key === 'cta_title') {
-        el.innerHTML = t[key];          // preserve <br>
-      } else {
-        el.textContent = t[key];
-      }
-    }
-  }
-
-  /* 2️⃣  WHAT WE OFFER — DESKTOP GRID  */
-  const desktopCards = document.querySelectorAll(
-    '#what-we-offer .offer-section-container .offer-card'
-  );
-  ['web_design', 'copywriting', 'seo', 'support'].forEach((base, i) => {
-    const card = desktopCards[i];
-    if (!card) return;
-    const title = card.querySelector('h3');
-    const text  = card.querySelector('p');
-    if (title) title.textContent = t[`${base}_title`];
-    if (text)  text.textContent  = t[`${base}_text`];
-  });
-
-  /* 3️⃣  WHAT WE OFFER — MOBILE “FIGMA” CARDS  */
-  const mobileCards = document.querySelectorAll(
-    '#what-we-offer .figma-offer-card'
-  );
-  ['figma_web_design', 'figma_copywriting', 'figma_seo', 'figma_support']
-    .forEach((base, i) => {
-      const card = mobileCards[i];
-      if (!card) return;
-      const title = card.querySelector('.figma-title');
-      const text  = card.querySelector('.figma-text');
-      if (title) title.textContent = t[`${base}_title`];
-      if (text)  text.textContent  = t[`${base}_text`];
-    });
-
-  /* 4️⃣  Save choice */
-  localStorage.setItem('selectedLang', lang);
-}
-
-/* Preserve your existing DOMContentLoaded block */
-window.addEventListener('DOMContentLoaded', () => {
-  const savedLang = localStorage.getItem('selectedLang') || 'en';
-  document.getElementById('language-select').value = savedLang;
-  setLanguage(savedLang);
-});
-</script>
-
-
 
 
   
