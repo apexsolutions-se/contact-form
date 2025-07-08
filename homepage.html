@@ -1247,6 +1247,70 @@ window.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
+
+
+
+<script>
+const translations = { /* … your existing object … */ };
+
+/* ---------- JUST REPLACE YOUR OLD setLanguage WITH THIS ---------- */
+function setLanguage(lang) {
+  const t = translations[lang];
+
+  /* 1️⃣  Update every element that already has an id  */
+  for (const key in t) {
+    const el = document.getElementById(key);
+    if (el) {
+      if (key === 'cta_title') {
+        el.innerHTML = t[key];          // preserve <br>
+      } else {
+        el.textContent = t[key];
+      }
+    }
+  }
+
+  /* 2️⃣  WHAT WE OFFER — DESKTOP GRID  */
+  const desktopCards = document.querySelectorAll(
+    '#what-we-offer .offer-section-container .offer-card'
+  );
+  ['web_design', 'copywriting', 'seo', 'support'].forEach((base, i) => {
+    const card = desktopCards[i];
+    if (!card) return;
+    const title = card.querySelector('h3');
+    const text  = card.querySelector('p');
+    if (title) title.textContent = t[`${base}_title`];
+    if (text)  text.textContent  = t[`${base}_text`];
+  });
+
+  /* 3️⃣  WHAT WE OFFER — MOBILE “FIGMA” CARDS  */
+  const mobileCards = document.querySelectorAll(
+    '#what-we-offer .figma-offer-card'
+  );
+  ['figma_web_design', 'figma_copywriting', 'figma_seo', 'figma_support']
+    .forEach((base, i) => {
+      const card = mobileCards[i];
+      if (!card) return;
+      const title = card.querySelector('.figma-title');
+      const text  = card.querySelector('.figma-text');
+      if (title) title.textContent = t[`${base}_title`];
+      if (text)  text.textContent  = t[`${base}_text`];
+    });
+
+  /* 4️⃣  Save choice */
+  localStorage.setItem('selectedLang', lang);
+}
+
+/* Preserve your existing DOMContentLoaded block */
+window.addEventListener('DOMContentLoaded', () => {
+  const savedLang = localStorage.getItem('selectedLang') || 'en';
+  document.getElementById('language-select').value = savedLang;
+  setLanguage(savedLang);
+});
+</script>
+
+
+
+
   
 <script>
 const hamburgerBtn = document.getElementById('hamburger-btn');
